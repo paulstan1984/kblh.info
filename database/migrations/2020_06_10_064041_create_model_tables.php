@@ -29,9 +29,6 @@ class CreateModelTables extends Migration
             $table->integer('position');
             $table->string('type');//chapter or content
             $table->timestamps();
-
-            $table->index('bookid');
-            $table->index('parentid');
             
             $table->foreign('bookid')->references('id')->on('books');
             $table->foreign('parentid')->references('id')->on('book_sections');
