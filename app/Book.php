@@ -11,7 +11,7 @@ class Book extends Model
   
   public function authors()
   {
-    return $this->belongsToMany('App\Author', 'books_authors', 'author_id', 'book_id');
+    return $this->belongsToMany('App\Author', 'books_authors', 'authorid', 'bookid');
   }
 
   public function chapters()
