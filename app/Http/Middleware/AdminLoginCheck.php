@@ -7,7 +7,8 @@ use App\User;
 
 class AdminLoginCheck
 {
-    private const UserIdKey = 'adminID';
+    public const AdminIdKey = 'adminID';
+    public const AdminKey = 'admin';
     /**
      * Handle an incoming request.
      *
@@ -17,7 +18,7 @@ class AdminLoginCheck
      */
     public function handle($request, Closure $next)
     {
-        $loggedInUserId = session(AdminLoginCheck::UserIdKey);
+        $loggedInUserId = session(AdminLoginCheck::AdminIdKey);
         if(empty($loggedInUserId)){
             return redirect(env('R_ADMIN_LOGIN'));
         }
@@ -28,7 +29,7 @@ class AdminLoginCheck
             return redirect(env('R_ADMIN_LOGIN'));
         }
         
-        $request->attributes->add(['admin' => $loggedInUser]);
+        $request->attributes->add([AdminLoginCheck::AdminKey => $loggedInUser]);
                 
         return $next($request);
     }
