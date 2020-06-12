@@ -53,7 +53,7 @@
                             </a>
 
                             <a class="nav-link" href="admin/authors">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user fa-fw"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
                                 <?php echo __('custom.authors')?>
                             </a>
 
@@ -62,7 +62,15 @@
                                 <?php echo __('custom.books')?>
                             </a>
 
-                            
+                            <a class="nav-link" href="admin/categories">
+                                <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                                <?php echo __('custom.categories')?>
+                            </a>
+
+                            <a class="nav-link" href="admin/users">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                <?php echo __('custom.users')?>
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

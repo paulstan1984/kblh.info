@@ -8,5 +8,9 @@ return [
 
   'home' => 'Pagina Principală',
   'authors' => 'Autori',
-  'books' => 'Cărți'
+  'books' => 'Cărți',
+  'categories' => 'Categorii',
+  'users' => 'Utilizatori',
+
+  'details' => 'Detalii',
 ];
