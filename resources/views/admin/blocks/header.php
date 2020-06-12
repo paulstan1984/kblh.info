@@ -66,8 +66,8 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small"><?php echo __('custom.loggedInAs')?>:</div>
+                        <?php echo $admin->firstname?> <?php echo $admin->lastname?> (<?php echo $admin->role?>)
                     </div>
                 </nav>
             </div>
