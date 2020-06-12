@@ -146,5 +146,7 @@ return [
     */
 
     'attributes' => [
+        'password' => 'Parola',
+        'email' => 'Email'
     ],
 ];
