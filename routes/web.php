@@ -19,5 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get(env('R_ADMIN'), 'AdminController@index');
+
 Route::get(env('R_ADMIN_LOGIN'), 'AdminLoginController@login');
 Route::post(env('R_ADMIN_LOGIN'), 'AdminLoginController@dologin');
+Route::get(env('R_ADMIN_LOGOUT'), 'AdminLoginController@logout');

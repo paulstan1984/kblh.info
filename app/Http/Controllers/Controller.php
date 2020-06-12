@@ -11,4 +11,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    var $data = [];
+
+    protected function loadBlocks(){
+        $this->data = array_merge($this->data, array(
+            'header' => view('blocks/header', $this->data)->render(),
+            'footer' => view('blocks/footer', $this->data)->render()
+        ));
+    }
 }

@@ -8,6 +8,10 @@ class AdminController extends AdminBaseController
 {
     public function index(Request $request)
     {
-        return view('admin/index');
+        $this->loadBlocks();
+        
+        return view('admin/index', $this->data);
     }
+
+    
 }

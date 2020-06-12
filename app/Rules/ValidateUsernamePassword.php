@@ -5,6 +5,7 @@ namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Log;
 
 class ValidateUsernamePassword implements Rule
 {
@@ -31,6 +32,8 @@ class ValidateUsernamePassword implements Rule
     {
         $email = $this->request->get('email');
         $password = md5($value.env('hash_key'));
+
+        Log::info('Parola: '.$password);
         
         $loggedInUser = User::where('email', $email)
                 ->where('password', $password)

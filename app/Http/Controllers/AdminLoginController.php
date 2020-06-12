@@ -22,6 +22,7 @@ class AdminLoginController extends Controller
         ]);
         
         $password = md5($validatedData['password'].env('hash_key'));
+
         $loggedInUser = User::where('email', $validatedData['email'])
                 ->where('password', $password)
                 ->first();
@@ -31,6 +32,11 @@ class AdminLoginController extends Controller
             return redirect(env('R_ADMIN'));
         }
         
+        return redirect(env('R_ADMIN_LOGIN'));
+    }
+
+    public function logout(){
+        session([AdminLoginCheck::AdminIdKey => null]);
         return redirect(env('R_ADMIN_LOGIN'));
     }
 }

@@ -2,6 +2,7 @@
 
 return [
   'login'=>'Autentificare',
-  'adminTitle' => 'Academia de Kabala - Administrare'
+  'logout' => 'Deconectare',
+  'adminTitle' => 'kblh.info - Administrare'
 
 ];
