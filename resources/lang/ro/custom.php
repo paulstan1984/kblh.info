@@ -13,4 +13,10 @@ return [
   'users' => 'Utilizatori',
 
   'details' => 'Detalii',
+    
+  'email' => 'Email',
+  'firstname' => 'Prenume',
+  'lastname' => 'Nume',
+  'role' => 'Rol',
+  'dateadded' => 'Data înregistrării',
 ];

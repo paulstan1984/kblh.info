@@ -21,4 +21,16 @@ class User extends Model
 
         return $counters;
     }
+    
+    public static function search($pagination){
+        $items = User::query();
+                
+        $items = $items
+                    ->orderBy($pagination->orderBy, $pagination->orderByDir)
+                    ->skip(($pagination->page - 1) * 10)
+                    ->take(10)
+                    ->get();
+        
+        return $items;
+    }
 }

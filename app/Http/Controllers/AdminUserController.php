@@ -12,8 +12,8 @@ class AdminUserController extends AdminBaseController
     {
         $this->loadBlocks();
         $pagination = $this->getPagination($request);
-
-        Log::debug((array)$pagination);
+        
+        $this->data['results'] = User::search($pagination);
         
         return view('admin/users/index', $this->data);
     }
