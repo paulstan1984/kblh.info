@@ -22,26 +22,48 @@
 
             <div class="card mb-4">
               <form method="POST" action="admin/users/edit/<?php echo $id?>">
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-12 col-md-4">
                       <label><?php echo __('custom.firstname')?>: </label>
-                      <input class="form-control" type="text" name="firstname" value="">
+                      <input class="form-control" type="text" name="firstname" value="<?php echo old('firstname', $item->firstname)?>"/>
+                        
+                      <?php if($errors->get('firstname')) { ?>
+                      <p class="text-danger">
+                          <?php echo implode(',', $errors->get('firstname'));?>
+                      </p>
+                      <?php } ?>
 
                       <label><?php echo __('custom.lastname')?>: </label>
-                      <input class="form-control" type="text" name="lastname" value="">
+                      <input class="form-control" type="text" name="lastname" value="<?php echo old('lastname', $item->lastname)?>">
+                      <?php if($errors->get('lastname')) { ?>
+                      <p class="text-danger">
+                          <?php echo implode(',', $errors->get('lastname'));?>
+                      </p>
+                      <?php } ?>
                     </div>
 
                     <div class="col-sm-12 col-md-4">
                       <label><?php echo __('custom.email')?>: </label>
-                      <input class="form-control" type="text" name="email" value="">
+                      <input class="form-control" type="text" name="email" value="<?php echo old('email', $item->email)?>">
+                      <?php if($errors->get('email')) { ?>
+                      <p class="text-danger">
+                          <?php echo implode(',', $errors->get('email'));?>
+                      </p>
+                      <?php } ?>
 
                       <label><?php echo __('custom.role')?>: </label>
                       
-                      <select class="form-control">
-                        <option value="admin"><?php echo __('custom.admin')?></option>
-                        <option value="member"><?php echo __('custom.member')?></option>
+                      <select class="form-control" name="role">
+                        <option value="admin" <?php echo old('role', $item->role)=='admin'?'selected="selected"':''?>><?php echo __('custom.admin')?></option>
+                        <option value="member" <?php echo old('role', $item->role)=='member'?'selected="selected"':''?>><?php echo __('custom.member')?></option>
                       </select>
+                      <?php if($errors->get('role')) { ?>
+                      <p class="text-danger">
+                          <?php echo implode(',', $errors->get('role'));?>
+                      </p>
+                      <?php } ?>
                     </div>
                   </div>
                   

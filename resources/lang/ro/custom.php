@@ -31,6 +31,7 @@ return [
 
   'cancel' => 'Anulează',
   'save'  => 'Salvează',
+  'editpassword' => 'Setează Parola',
 
   'admin'  => 'Administrator',
   'member' => 'Membru'

@@ -48,13 +48,21 @@
                                     <td><?php echo $item->email?></td>
                                     <td><?php echo $item->firstname?></td>
                                     <td><?php echo $item->lastname?></td>
-                                    <td><?php echo $item->role?></td>
+                                    <td><?php echo __('custom.'.$item->role)?></td>
                                     <td><?php echo $item->created_at->format('Y-m-d')?></td>
                                     <td>
                                         <a class="btn btn-primary" href="admin/users/edit/<?php echo $item->id?>">
+                                            <i class="fas fa-edit"></i>
                                             <?php echo __('custom.edit')?>
                                         </a>
+
+                                        <a class="btn btn-secondary" href="admin/users/change-password/<?php echo $item->id?>">
+                                            <i class="fas fa-key"></i>
+                                            <?php echo __('custom.editpassword')?>
+                                        </a>
+
                                         <a class="btn btn-danger" href="admin/users/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
+                                            <i class="fas fa-trash"></i>
                                             <?php echo __('custom.delete')?>
                                         </a>
                                     </td>
