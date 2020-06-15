@@ -14,6 +14,10 @@
             </ol>
 
             <div class="card mb-4">
+
+                <div class="card-header">
+                    <a class="btn btn-primary" href="admin/users/edit/0"><?php echo __('custom.addnew')?></a>
+                </div>
                 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -25,6 +29,7 @@
                                     <th><?php echo __('custom.lastname')?></th>
                                     <th><?php echo __('custom.role')?></th>
                                     <th><?php echo __('custom.dateadded')?></th>
+                                    <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -34,26 +39,62 @@
                                     <th><?php echo __('custom.lastname')?></th>
                                     <th><?php echo __('custom.role')?></th>
                                     <th><?php echo __('custom.dateadded')?></th>
+                                    <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php foreach($results as $item){?>
+                                <?php foreach($results->results as $item){?>
                                 <tr>
                                     <td><?php echo $item->email?></td>
                                     <td><?php echo $item->firstname?></td>
                                     <td><?php echo $item->lastname?></td>
                                     <td><?php echo $item->role?></td>
                                     <td><?php echo $item->created_at->format('Y-m-d')?></td>
+                                    <td>
+                                        <a class="btn btn-primary" href="admin/users/edit/<?php echo $item->id?>">
+                                            <?php echo __('custom.edit')?>
+                                        </a>
+                                        <a class="btn btn-danger" href="admin/users/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
+                                            <?php echo __('custom.delete')?>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php }?>
                             </tbody>
                         </table>
+
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <div class="dataTables_paginate paging_simple_numbers pullright">
+                        <ul class="pagination">
+                            <li class="paginate_button page-item previous">
+                                <a href="#" aria-controls="dataTable" class="page-link">
+                                    <?php echo __('custom.first')?>
+                                </a>
+                            </li>
+
+                            <?php for($i=$results->page-10;$i<$results->page+10;$i++){
+                            if($i>=1 && $i<=$results->nrPages) {?>
+                            <li class="paginate_button page-item <?php echo $i==$results->page?'active':''?>">
+                                <a href="#" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
+                            </li>
+                            <?php }}?>
+                            
+                            <li class="paginate_button page-item next">
+                                <a href="#" aria-controls="dataTable" class="page-link">
+                                    <?php echo __('custom.last')?>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            
         </div>
+
     </main>
 
 <?php echo $footer ?>

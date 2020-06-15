@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class User extends Model
 {
@@ -22,15 +23,9 @@ class User extends Model
         return $counters;
     }
     
-    public static function search($pagination){
+    public static function search(Request $request){
         $items = User::query();
                 
-        $items = $items
-                    ->orderBy($pagination->orderBy, $pagination->orderByDir)
-                    ->skip(($pagination->page - 1) * 10)
-                    ->take(10)
-                    ->get();
-        
         return $items;
     }
 }

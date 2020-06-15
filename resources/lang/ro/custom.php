@@ -19,4 +19,19 @@ return [
   'lastname' => 'Nume',
   'role' => 'Rol',
   'dateadded' => 'Data înregistrării',
+  'actions' => 'Operații',
+
+  'first' => 'Prima',
+  'last' => 'Ultima',
+
+  'addnew' => 'Adaugă',
+  'edit'   => 'Editează',
+  'add'    => 'Adaugă',
+  'delete' => 'Șterge',
+
+  'cancel' => 'Anulează',
+  'save'  => 'Salvează',
+
+  'admin'  => 'Administrator',
+  'member' => 'Membru'
 ];

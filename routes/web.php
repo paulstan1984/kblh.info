@@ -26,3 +26,6 @@ Route::get(env('R_ADMIN_LOGOUT'), 'AdminLoginController@logout');
 
 Route::get(env('R_ADMIN').'/users', 'AdminUserController@index');
 Route::post(env('R_ADMIN').'/users', 'AdminUserController@index');
+Route::post(env('R_ADMIN').'/users/edit/{id}', 'AdminUserController@addedit');
+Route::get(env('R_ADMIN').'/users/edit/{id}', 'AdminUserController@addedit');
+Route::get(env('R_ADMIN').'/users/delete/{id}', 'AdminUserController@delete');

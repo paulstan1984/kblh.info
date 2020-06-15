@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Http\Middleware\AdminLoginCheck;
+use Illuminate\Database\Eloquent\Builder;
 
 class AdminBaseController extends Controller
 {
@@ -23,5 +24,21 @@ class AdminBaseController extends Controller
             'header' => view('admin/blocks/header', $this->data)->render(),
             'footer' => view('admin/blocks/footer', $this->data)->render()
         ));
+    }
+
+    protected static function applyPagination(Builder $query, $pagination) {
+        $pageSize = 10;
+
+        $nrPages = ceil($query->count() / $pageSize) ;
+        $query = $query->orderBy($pagination->orderBy, $pagination->orderByDir)
+            ->skip(($pagination->page - 1) * $pageSize)
+            ->take(10)
+            ->get();
+
+        return (object)[
+            'nrPages' => $nrPages,
+            'page'    => $pagination->page,
+            'results' => $query,
+        ];
     }
 }

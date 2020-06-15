@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/.env</file>
-            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/config/app.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/app/Http/Controllers/AdminUserController.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/resources/views/admin/users/index.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/app/Http/Controllers/AdminBaseController.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/routes/web.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/app/Http/Controllers/Controller.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/resources/lang/ro/custom.php</file>
+            <file>file:/var/www/academia-de-cabala/site-web/restrictedCMS/app/User.php</file>
         </group>
     </open-files>
 </project-private>
