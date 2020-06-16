@@ -13,7 +13,9 @@ return [
   'users' => 'Utilizatori',
 
   'details' => 'Detalii',
-    
+
+  'name' => 'Nume',
+  'id' => 'Id',
   'email' => 'Email',
   'firstname' => 'Prenume',
   'lastname' => 'Nume',
@@ -25,6 +27,7 @@ return [
 
   'first' => 'Prima',
   'last' => 'Ultima',
+  'nodata' => 'Nu există rezultate!',
 
   'addnew' => 'Adaugă',
   'edit'   => 'Editează',
@@ -44,4 +47,6 @@ return [
   'infodeleted' => 'Informațiile au fost șterse',
   'welcome' => 'Bine ați venit',
   'invalidcredentials' => 'Date de conectare incorecte.',
+
+  
 ];

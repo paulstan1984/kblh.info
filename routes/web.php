@@ -31,3 +31,9 @@ Route::post(env('R_ADMIN').'/users/edit/{id}', 'AdminUserController@save');
 Route::get(env('R_ADMIN').'/users/delete/{id}', 'AdminUserController@delete');
 Route::get(env('R_ADMIN').'/users/changepassword/{id}', 'AdminUserController@changepassword');
 Route::post(env('R_ADMIN').'/users/changepassword/{id}', 'AdminUserController@savepassword');
+
+Route::get(env('R_ADMIN').'/authors', 'AdminAuthorsController@index');
+Route::post(env('R_ADMIN').'/authors', 'AdminAuthorsController@index');
+Route::get(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@edit');
+Route::post(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@save');
+Route::get(env('R_ADMIN').'/authors/delete/{id}', 'AdminAuthorsController@delete');
