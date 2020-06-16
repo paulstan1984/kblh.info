@@ -56,7 +56,7 @@
                                             <?php echo __('custom.edit')?>
                                         </a>
 
-                                        <a class="btn btn-secondary" href="admin/users/change-password/<?php echo $item->id?>">
+                                        <a class="btn btn-secondary" href="admin/users/changepassword/<?php echo $item->id?>">
                                             <i class="fas fa-key"></i>
                                             <?php echo __('custom.editpassword')?>
                                         </a>

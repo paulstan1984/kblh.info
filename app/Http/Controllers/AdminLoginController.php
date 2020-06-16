@@ -21,7 +21,7 @@ class AdminLoginController extends Controller
             'password' => ['required', new ValidateUsernamePassword($request)],
         ]);
         
-        $password = md5($validatedData['password'].env('hash_key'));
+        $password = User::hashPassword($validatedData['password']);
 
         $loggedInUser = User::where('email', $validatedData['email'])
                 ->where('password', $password)

@@ -147,6 +147,7 @@ return [
 
     'attributes' => [
         'password' => 'Parola',
+        'repassword' => 'Parola din nou',
         'email' => 'Email'
     ],
 ];

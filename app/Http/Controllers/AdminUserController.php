@@ -74,4 +74,41 @@ class AdminUserController extends AdminBaseController
         $item->delete(); 
         return redirect(env('R_ADMIN').'/users');
     }
+
+    public function changepassword(Request $request, int $id = 0)
+    {
+        $this->loadBlocks();
+        $this->data['id'] = $id;
+
+        if($id!=0){
+            $this->data['item'] = User::find($id);
+        }
+        else{
+            return redirect(env('R_ADMIN').'/users');
+        }       
+        
+        return view('admin/users/changepassword', $this->data);
+    }
+
+    public function savepassword(Request $request,int $id = 0)
+    {
+        $item = null;
+        
+        if($id==0){
+            return redirect(env('R_ADMIN').'/users');
+        }
+        
+        $validatedData = $request->validate([
+            'password' => 'required|max:20',
+            'repassword' => 'required|max:20|same:password',
+        ]);
+            
+        $item = User::find($id);
+        $item->updated_at = date('Y-m-d H:i:s');
+        $item->password = User::hashPassword($validatedData['password']);
+            
+        $item->save();
+
+        return redirect(env('R_ADMIN').'/users');
+    } 
 }

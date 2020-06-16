@@ -29,3 +29,5 @@ Route::post(env('R_ADMIN').'/users', 'AdminUserController@index');
 Route::get(env('R_ADMIN').'/users/edit/{id}', 'AdminUserController@edit');
 Route::post(env('R_ADMIN').'/users/edit/{id}', 'AdminUserController@save');
 Route::get(env('R_ADMIN').'/users/delete/{id}', 'AdminUserController@delete');
+Route::get(env('R_ADMIN').'/users/changepassword/{id}', 'AdminUserController@changepassword');
+Route::post(env('R_ADMIN').'/users/changepassword/{id}', 'AdminUserController@savepassword');

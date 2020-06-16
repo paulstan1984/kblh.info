@@ -28,4 +28,8 @@ class User extends Model
                 
         return $items;
     }
+
+    public static function hashPassword(string $plainPassword) {
+        return md5($plainPassword.env('hash_key'));
+    }
 }

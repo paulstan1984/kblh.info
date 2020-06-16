@@ -18,6 +18,8 @@ return [
   'firstname' => 'Prenume',
   'lastname' => 'Nume',
   'role' => 'Rol',
+  'password' => 'Parola',
+  'repassword' => 'Parola din nou',
   'dateadded' => 'Data înregistrării',
   'actions' => 'Operații',
 
@@ -32,6 +34,7 @@ return [
   'cancel' => 'Anulează',
   'save'  => 'Salvează',
   'editpassword' => 'Setează Parola',
+  'editpasswordfor' => 'Setează Parola pentru: ',
 
   'admin'  => 'Administrator',
   'member' => 'Membru'
