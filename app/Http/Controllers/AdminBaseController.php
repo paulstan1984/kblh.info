@@ -15,7 +15,7 @@ class AdminBaseController extends Controller
 
         $loggedInUserId = session(AdminLoginCheck::AdminIdKey);
         if(empty($loggedInUserId)){
-            return redirect(env('R_ADMIN_LOGIN'));
+            return redirect(env('R_ADMIN_LOGIN').'?msg=notloggedin');
         }
         
         $this->data['admin'] = User::find($loggedInUserId);

@@ -42,4 +42,9 @@ class Controller extends BaseController
           
         return (object)$pagination;
     }
+
+    protected function loadNotificationAndErrorMessages(Request $request){
+        $this->data['msg'] = $request->get('msg');
+        $this->data['errmsg'] = $request->get('errmsg');
+    }
 }

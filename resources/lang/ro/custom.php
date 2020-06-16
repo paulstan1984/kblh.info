@@ -37,5 +37,11 @@ return [
   'editpasswordfor' => 'Setează Parola pentru: ',
 
   'admin'  => 'Administrator',
-  'member' => 'Membru'
+  'member' => 'Membru',
+
+  'notloggedin' => 'Nu sunteți conectat.',
+  'infosaved'   => 'Informațiile au fost salvate.',
+  'infodeleted' => 'Informațiile au fost șterse',
+  'welcome' => 'Bine ați venit',
+  'invalidcredentials' => 'Date de conectare incorecte.',
 ];

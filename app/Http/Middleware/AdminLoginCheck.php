@@ -20,13 +20,13 @@ class AdminLoginCheck
     {
         $loggedInUserId = session(AdminLoginCheck::AdminIdKey);
         if(empty($loggedInUserId)){
-            return redirect(env('R_ADMIN_LOGIN'));
+            return redirect(env('R_ADMIN_LOGIN').'?msg=notloggedin');
         }
         
         $loggedInUser = User::find($loggedInUserId);
         
         if($loggedInUser == null || $loggedInUser['role']!='admin'){
-            return redirect(env('R_ADMIN_LOGIN'));
+            return redirect(env('R_ADMIN_LOGIN').'?msg=notloggedin');
         }
         
         $request->attributes->add([AdminLoginCheck::AdminKey => $loggedInUser]);

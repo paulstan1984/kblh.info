@@ -11,7 +11,8 @@ class AdminLoginController extends Controller
 {
     public function login(Request $request)
     {
-        return view('admin/login');
+        $this->loadNotificationAndErrorMessages($request);
+        return view('admin/login', $this->data);
     }
 
     public function dologin(Request $request)
@@ -29,10 +30,10 @@ class AdminLoginController extends Controller
         
         if(!empty($loggedInUser)){
             session([AdminLoginCheck::AdminIdKey => $loggedInUser->id]);
-            return redirect(env('R_ADMIN'));
+            return redirect(env('R_ADMIN').'?msg=welcome');
         }
         
-        return redirect(env('R_ADMIN_LOGIN'));
+        return redirect(env('R_ADMIN_LOGIN').'?msg=invalidcredentials');
     }
 
     public function logout(){

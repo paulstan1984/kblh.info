@@ -17,8 +17,18 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4"><?php echo __('custom.login')?></h3></div>
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">
+                                            <?php echo __('custom.login')?>
+                                        </h3>
+                                    </div>
                                     <div class="card-body">
+                                        <?php if(!empty($msg)) {?>
+                                        <div class="alert alert-info" role="alert">
+                                            <?php echo __('custom.'.$msg)?>
+                                        </div>
+                                        <?php }?>
+                                        
                                         <form method="POST" action="admin/login">
                                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> 
                                             <div class="form-group">

@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use App\User;
+use Exception;
 
 class AdminUserController extends AdminBaseController
 {
     public function index(Request $request)
     {
         $this->loadBlocks();
+        $this->loadNotificationAndErrorMessages($request);
 
         $pagination = $this->getPagination($request);
         $query = User::search($request);
@@ -65,14 +67,14 @@ class AdminUserController extends AdminBaseController
             
         $item->save();
 
-        return redirect(env('R_ADMIN').'/users');
+        return redirect(env('R_ADMIN').'/users?msg=infosaved');
     } 
 
     public function delete(Request $request, $id)
     {
         $item = User::find($id);
         $item->delete(); 
-        return redirect(env('R_ADMIN').'/users');
+        return redirect(env('R_ADMIN').'/users?msg=infodeleted');
     }
 
     public function changepassword(Request $request, int $id = 0)
@@ -84,7 +86,7 @@ class AdminUserController extends AdminBaseController
             $this->data['item'] = User::find($id);
         }
         else{
-            return redirect(env('R_ADMIN').'/users');
+            return redirect(env('R_ADMIN').'/users?msg=selectanuser');
         }       
         
         return view('admin/users/changepassword', $this->data);
@@ -95,7 +97,7 @@ class AdminUserController extends AdminBaseController
         $item = null;
         
         if($id==0){
-            return redirect(env('R_ADMIN').'/users');
+            return redirect(env('R_ADMIN').'/users?msg=selectanuser');
         }
         
         $validatedData = $request->validate([
@@ -109,6 +111,6 @@ class AdminUserController extends AdminBaseController
             
         $item->save();
 
-        return redirect(env('R_ADMIN').'/users');
+        return redirect(env('R_ADMIN').'/users?msg=infosaved');
     } 
 }

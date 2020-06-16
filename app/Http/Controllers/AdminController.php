@@ -10,6 +10,7 @@ class AdminController extends AdminBaseController
     public function index(Request $request)
     {
         $this->loadBlocks();
+        $this->loadNotificationAndErrorMessages($request);
 
         $this->data['counters'] = User::getDashBoardCounters();
         

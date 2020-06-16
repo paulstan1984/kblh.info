@@ -8,6 +8,18 @@
                 <li class="breadcrumb-item active"><?php echo __('custom.home')?></li>
             </ol>
 
+            <?php if(!empty($msg)) {?>
+            <div class="alert alert-info" role="alert">
+                <?php echo __('custom.'.$msg)?>
+            </div>
+            <?php }?>
+
+            <?php if(!empty($errmsg)){?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo __('custom.'.$errmsg)?>
+            </div>
+            <?php }?>
+
             <div class="row">
               <div class="col-xl-3 col-md-6">
                   <div class="card bg-primary text-white mb-4">
