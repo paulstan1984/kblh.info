@@ -37,3 +37,9 @@ Route::post(env('R_ADMIN').'/authors', 'AdminAuthorsController@index');
 Route::get(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@edit');
 Route::post(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@save');
 Route::get(env('R_ADMIN').'/authors/delete/{id}', 'AdminAuthorsController@delete');
+
+Route::get(env('R_ADMIN').'/categories', 'AdminCategoriesController@index');
+Route::post(env('R_ADMIN').'/categories', 'AdminCategoriesController@index');
+Route::get(env('R_ADMIN').'/categories/edit/{id}', 'AdminCategoriesController@edit');
+Route::post(env('R_ADMIN').'/categories/edit/{id}', 'AdminCategoriesController@save');
+Route::get(env('R_ADMIN').'/categories/delete/{id}', 'AdminCategoriesController@delete');

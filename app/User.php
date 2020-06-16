@@ -17,7 +17,7 @@ class User extends Model
             'nrUsers' => DB::table('users')->count(),
             'nrAuthors' => DB::table('authors')->count(),
             'nrBooks' => DB::table('books')->count(),
-            'nrCategories' => 0//DB::table('categories')->count(),
+            'nrCategories' => DB::table('categories')->count(),
         ];
 
         return $counters;

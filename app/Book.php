@@ -14,6 +14,11 @@ class Book extends Model
     return $this->belongsToMany('App\Author', 'books_authors', 'authorid', 'bookid');
   }
 
+  public function categories()
+  {
+    return $this->belongsToMany('App\Category', 'books_categories', 'categoryid', 'bookid');
+  }
+
   public function chapters()
   {
     return $this->hasMany('App\BookSection', 'id', 'bookid')->where('parentid', 0);
