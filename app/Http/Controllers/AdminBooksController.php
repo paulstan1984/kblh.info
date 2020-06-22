@@ -132,4 +132,16 @@ class AdminBooksController extends AdminBaseController
         $item->delete(); 
         return redirect(env('R_ADMIN').'/books/edit/'.$bookid.'?msg=infodeleted');
     }
+
+    public function sectionmoveup(Request $request, $id)
+    {
+        $item = BookSection::moveup($id);
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
+    }
+
+    public function sectionmovedown(Request $request, $id)
+    {
+        $item = BookSection::movedown($id);
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
+    }
 }

@@ -54,3 +54,6 @@ Route::get(env('R_ADMIN').'/books/delete/{id}', 'AdminBooksController@delete');
 Route::get(env('R_ADMIN').'/books/{bookid}/chapters/{id}/{parentid}', 'AdminBooksController@editchapter');
 Route::post(env('R_ADMIN').'/books/{bookid}/chapters/{id}/{parentid}', 'AdminBooksController@savechapter');
 Route::get(env('R_ADMIN').'/books/{bookid}/deletechapter/{id}', 'AdminBooksController@deletechapter');
+
+Route::get(env('R_ADMIN').'/booksection/{id}/up', 'AdminBooksController@sectionmoveup');
+Route::get(env('R_ADMIN').'/booksection/{id}/down', 'AdminBooksController@sectionmovedown');

@@ -13,4 +13,12 @@ class BookSection extends Model
   {
     return $this->hasMany('App\BookSection', 'id', 'parentid');
   }
+
+  public static function moveup(int $id){
+    return BookSection::find($id);
+  }
+
+  public static function movedown(int $id){
+    return BookSection::find($id);
+  }
 }

@@ -81,6 +81,15 @@
                                             <i class="fas fa-trash"></i>
                                             <?php echo __('custom.delete')?>
                                         </a>
+
+
+                                        <a class="btn" href="admin/booksection/<?php echo $chapter->id?>/up">
+                                          <i class="fas fa-arrow-up"></i>
+                                        </a>
+
+                                        <a class="btn" href="admin/booksection/<?php echo $chapter->id?>/down">
+                                        <i class="fas fa-arrow-down"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php }?>
