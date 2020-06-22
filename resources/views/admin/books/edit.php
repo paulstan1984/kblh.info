@@ -77,7 +77,7 @@
                                             <?php echo __('custom.edit')?>
                                         </a>
 
-                                        <a class="btn btn-danger" href="admin/books/<?php echo $item->id?>/chapters/<?php echo $chapter->id?>/delete" onclick="return confirm('Confirmați?')">
+                                        <a class="btn btn-danger" href="admin/books/<?php echo $item->id?>/deletechapter/<?php echo $chapter->id?>" onclick="return confirm('Confirmați?')">
                                             <i class="fas fa-trash"></i>
                                             <?php echo __('custom.delete')?>
                                         </a>

@@ -30,4 +30,11 @@ class Book extends Model
             
     return $items;
   }
+
+  public static function getNextSectionPosition(int $bookid, int $parentid){
+    return BookSection::query()
+      ->where('bookid', $bookid)
+      ->where('parentid', $parentid)
+      ->max('position') + 1;
+  }
 }

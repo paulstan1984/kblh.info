@@ -85,7 +85,9 @@ class AdminBooksController extends AdminBaseController
             $this->data['item'] = BookSection::find($id);
         }
         else{
-            $this->data['item'] = new Book;
+            $this->data['item'] = new BookSection;
+
+            $this->data['item']->position = Book::getNextSectionPosition($bookid, $parentid);
         }       
         
         return view('admin/books/editchapter', $this->data);
@@ -128,6 +130,6 @@ class AdminBooksController extends AdminBaseController
     {
         $item = BookSection::find($id);
         $item->delete(); 
-        return redirect(env('R_ADMIN').'/books/edit/'.$item->id.'msg=infodeleted');
+        return redirect(env('R_ADMIN').'/books/edit/'.$bookid.'?msg=infodeleted');
     }
 }
