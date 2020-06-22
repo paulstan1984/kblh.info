@@ -3,14 +3,14 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4"><?php echo __('custom.users')?></h1>
+            <h1 class="mt-4"><?php echo __('custom.books')?></h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">
                     <a href="admin">
                         <?php echo __('custom.home')?>
                     </a>
                 </li>
-                <li class="breadcrumb-item active"><?php echo __('custom.users')?></li>
+                <li class="breadcrumb-item active"><?php echo __('custom.books')?></li>
             </ol>
 
             <?php if(!empty($msg)) {?>
@@ -28,7 +28,7 @@
             <div class="card mb-4">
 
                 <div class="card-header">
-                    <a class="btn btn-primary" href="admin/users/edit/0"><?php echo __('custom.addnew')?></a>
+                    <a class="btn btn-primary" href="admin/books/edit/0"><?php echo __('custom.addnew')?></a>
                 </div>
                 
                 <?php if(count($results->results)>0){?>
@@ -37,44 +37,33 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th><?php echo __('custom.email')?></th>
-                                    <th><?php echo __('custom.firstname')?></th>
-                                    <th><?php echo __('custom.lastname')?></th>
-                                    <th><?php echo __('custom.role')?></th>
-                                    <th><?php echo __('custom.dateadded')?></th>
+                                    <th><?php echo __('custom.title')?></th>
+                                    <th><?php echo __('custom.description')?></th>
+                                    <th nowrap><?php echo __('custom.dateadded')?></th>
                                     <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th><?php echo __('custom.email')?></th>
-                                    <th><?php echo __('custom.firstname')?></th>
-                                    <th><?php echo __('custom.lastname')?></th>
-                                    <th><?php echo __('custom.role')?></th>
-                                    <th><?php echo __('custom.dateadded')?></th>
+                                    <th><?php echo __('custom.title')?></th>
+                                    <th><?php echo __('custom.description')?></th>
+                                    <th nowrap><?php echo __('custom.dateadded')?></th>
                                     <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 <?php foreach($results->results as $item){?>
                                 <tr>
-                                    <td><?php echo $item->email?></td>
-                                    <td><?php echo $item->firstname?></td>
-                                    <td><?php echo $item->lastname?></td>
-                                    <td><?php echo __('custom.'.$item->role)?></td>
+                                    <td><?php echo $item->title?></td>
+                                    <td><?php echo substr(strip_tags($item->description), 0, 200)?></td>
                                     <td><?php echo $item->created_at->format('Y-m-d')?></td>
-                                    <td>
-                                        <a class="btn btn-primary" href="admin/users/edit/<?php echo $item->id?>">
+                                    <td nowrap>
+                                        <a class="btn btn-primary" href="admin/books/edit/<?php echo $item->id?>">
                                             <i class="fas fa-edit"></i>
                                             <?php echo __('custom.edit')?>
                                         </a>
 
-                                        <a class="btn btn-secondary" href="admin/users/changepassword/<?php echo $item->id?>">
-                                            <i class="fas fa-key"></i>
-                                            <?php echo __('custom.editpassword')?>
-                                        </a>
-
-                                        <a class="btn btn-danger" href="admin/users/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
+                                        <a class="btn btn-danger" href="admin/books/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
                                             <i class="fas fa-trash"></i>
                                             <?php echo __('custom.delete')?>
                                         </a>

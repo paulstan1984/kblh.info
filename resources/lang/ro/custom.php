@@ -24,6 +24,8 @@ return [
   'repassword' => 'Parola din nou',
   'dateadded' => 'Data înregistrării',
   'actions' => 'Operații',
+  'title' => 'Titlu',
+  'description' => 'Descriere',
 
   'first' => 'Prima',
   'last' => 'Ultima',
@@ -48,5 +50,8 @@ return [
   'welcome' => 'Bine ați venit',
   'invalidcredentials' => 'Date de conectare incorecte.',
 
+  'addchapter' => 'Adaugă capitol',
+  'position' => 'Poziție',
+  'chapter' => 'Capitol'
   
 ];

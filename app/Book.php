@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Book extends Model
 {
@@ -11,16 +12,22 @@ class Book extends Model
   
   public function authors()
   {
-    return $this->belongsToMany('App\Author', 'books_authors', 'authorid', 'bookid');
+    return $this->belongsToMany('App\Author', 'books_authors', 'bookid', 'authorid');
   }
 
   public function categories()
   {
-    return $this->belongsToMany('App\Category', 'books_categories', 'categoryid', 'bookid');
+    return $this->belongsToMany('App\Category', 'books_categories', 'bookid', 'categoryid');
   }
 
   public function chapters()
   {
-    return $this->hasMany('App\BookSection', 'id', 'bookid')->where('parentid', 0);
+    return $this->hasMany('App\BookSection', 'bookid', 'id')->where('parentid', 0);
+  }
+
+  public static function search(Request $request){
+    $items = Book::query();
+            
+    return $items;
   }
 }

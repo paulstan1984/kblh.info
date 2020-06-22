@@ -43,3 +43,14 @@ Route::post(env('R_ADMIN').'/categories', 'AdminCategoriesController@index');
 Route::get(env('R_ADMIN').'/categories/edit/{id}', 'AdminCategoriesController@edit');
 Route::post(env('R_ADMIN').'/categories/edit/{id}', 'AdminCategoriesController@save');
 Route::get(env('R_ADMIN').'/categories/delete/{id}', 'AdminCategoriesController@delete');
+
+Route::get(env('R_ADMIN').'/books', 'AdminBooksController@index');
+Route::post(env('R_ADMIN').'/books', 'AdminBooksController@index');
+Route::get(env('R_ADMIN').'/books/edit/{id}', 'AdminBooksController@edit');
+Route::post(env('R_ADMIN').'/books/edit/{id}', 'AdminBooksController@save');
+Route::get(env('R_ADMIN').'/books/delete/{id}', 'AdminBooksController@delete');
+
+
+Route::get(env('R_ADMIN').'/books/{bookid}/chapters/{id}/{parentid}', 'AdminBooksController@editchapter');
+Route::post(env('R_ADMIN').'/books/{bookid}/chapters/{id}/{parentid}', 'AdminBooksController@savechapter');
+Route::get(env('R_ADMIN').'/books/{bookid}/chapters/{id}/delete', 'AdminBooksController@deletechapter');

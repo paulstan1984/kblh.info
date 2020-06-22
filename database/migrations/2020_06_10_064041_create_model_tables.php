@@ -31,7 +31,6 @@ class CreateModelTables extends Migration
             $table->timestamps();
             
             $table->foreign('bookid')->references('id')->on('books');
-            $table->foreign('parentid')->references('id')->on('book_sections');
         });
 
         Schema::create('authors', function (Blueprint $table) {
