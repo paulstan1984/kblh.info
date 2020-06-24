@@ -22,7 +22,9 @@ class Book extends Model
 
   public function chapters()
   {
-    return $this->hasMany('App\BookSection', 'bookid', 'id')->where('parentid', 0);
+    return $this->hasMany('App\BookSection', 'bookid', 'id')
+      ->where('parentid', 0)
+      ->orderby('position');
   }
 
   public static function search(Request $request){
