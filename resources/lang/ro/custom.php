@@ -52,6 +52,7 @@ return [
 
   'addchapter' => 'Adaugă capitol',
   'position' => 'Poziție',
-  'chapter' => 'Capitol'
-  
+  'chapter' => 'Capitol',
+  'chapters' => 'Capitole',
+  'bookdetails' => 'Detalii carte',
 ];
