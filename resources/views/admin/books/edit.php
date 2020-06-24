@@ -68,7 +68,7 @@
                             </tfoot>
                             <tbody>
                                 <?php foreach($item->chapters as $chapter){?>
-                                <tr>
+                                <tr <?php echo $selected_section==$chapter->id?'class="alert alert-primary"':''?>>
                                     <td><?php echo $chapter->title?></td>
                                     <td><?php echo $chapter->position?></td>
                                     <td>
