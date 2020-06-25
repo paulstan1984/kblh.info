@@ -189,7 +189,10 @@ class AdminBooksController extends AdminBaseController
             ->first();
 
         if($item != null){
-            $item->delete();
+            BookAuthor::query() 
+                ->where('bookid', '=', $id)
+                ->where('authorid', '=', $authorid)
+                ->delete();
         }
 
         return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
