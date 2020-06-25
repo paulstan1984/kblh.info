@@ -25,6 +25,7 @@ class AdminBooksController extends AdminBaseController
     public function edit(Request $request, int $id = 0)
     {
         $this->loadBlocks();
+        $this->loadNotificationAndErrorMessages($request);
         $this->data['id'] = $id;
         $this->data['selected_section'] = $request->get('selected_section');
 
@@ -77,8 +78,10 @@ class AdminBooksController extends AdminBaseController
     public function editchapter(Request $request, int $bookid, int $id = 0, int $parentid)
     {
         $this->loadBlocks();
+        $this->loadNotificationAndErrorMessages($request);
         $this->data['id'] = $id;
         $this->data['selected_section'] = $request->get('selected_section');
+        $this->data['parents'] = BookSection::getParents($id);
 
         $this->data['book'] = Book::find($bookid);
         $this->data['parentid'] = $parentid;
@@ -126,7 +129,11 @@ class AdminBooksController extends AdminBaseController
             
         $item->save();
 
-        return redirect(env('R_ADMIN').'/books/edit/'.$bookid.'?msg=infosaved');
+        if($item->parentid==0){
+            return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?msg=infosaved');
+        } else {
+            return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->parentid.'/0?msg=infosaved');
+        }
     } 
 
     public function deletechapter(Request $request, $bookid, $id)

@@ -20,6 +20,18 @@
         </li>
       </ol>
 
+      <?php if (!empty($msg)) { ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo __('custom.' . $msg) ?>
+        </div>
+      <?php } ?>
+
+      <?php if (!empty($errmsg)) { ?>
+        <div class="alert alert-danger" role="alert">
+          <?php echo __('custom.' . $errmsg) ?>
+        </div>
+      <?php } ?>
+
       <div class="card mb-4">
         <form method="POST" action="admin/books/edit/<?php echo $id ?>">
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

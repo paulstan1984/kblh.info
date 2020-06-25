@@ -20,10 +20,31 @@
             <?php echo $book->title ?>
           </a>
         </li>
+
+        <?php foreach ($parents as $parent) { ?>
+          <li class="breadcrumb-item">
+            <a href="admin/books/<?php echo $parent->bookid ?>/chapters/<?php echo $parent->id ?>/<?php echo $parent->parentid ?>">
+              <?php echo $parent->title ?>
+            </a>
+          </li>
+        <?php } ?>
+
         <li class="breadcrumb-item active">
-          <?php echo $id == 0 ? __('custom.add') : __('custom.edit') ?> <?php echo __('custom.chapter') ?>
+          <?php echo $id == 0 ? __('custom.add') . ' ' . __('custom.chapter') : __('custom.edit') . ' ' . $item->title ?>
         </li>
       </ol>
+
+      <?php if (!empty($msg)) { ?>
+        <div class="alert alert-info" role="alert">
+          <?php echo __('custom.' . $msg) ?>
+        </div>
+      <?php } ?>
+
+      <?php if (!empty($errmsg)) { ?>
+        <div class="alert alert-danger" role="alert">
+          <?php echo __('custom.' . $errmsg) ?>
+        </div>
+      <?php } ?>
 
       <div class="card mb-4">
         <form method="POST" action="admin/books/<?php echo $book->id ?>/chapters/<?php echo $id ?>/<?php echo $parentid ?>">
@@ -86,7 +107,7 @@
                           <td><?php echo $subsection->title ?></td>
                           <td><?php echo $subsection->position ?></td>
                           <td>
-                            <a class="btn btn-primary" href="admin/books/<?php echo $item->bookid ?>/chapters/<?php echo $subsection->id ?>/<?php echo $subsection->parentid?>">
+                            <a class="btn btn-primary" href="admin/books/<?php echo $item->bookid ?>/chapters/<?php echo $subsection->id ?>/<?php echo $subsection->parentid ?>">
                               <i class="fas fa-edit"></i>
                               <?php echo __('custom.edit') ?>
                             </a>
@@ -119,16 +140,16 @@
           </div>
 
           <div class="card-footer">
-            <?php if($item->parentid==0) {?>
+            <?php if ($item->parentid == 0) { ?>
               <a href="admin/books/edit/<?php echo $book->id ?>" class="btn btn-secondary"><?php echo __('custom.cancel') ?></a>
             <?php } else { ?>
               <a href="admin/books/<?php echo $item->bookid ?>/chapters/<?php echo $item->parentid ?>/0" class="btn btn-secondary"><?php echo __('custom.cancel') ?></a>
-            <?php }?>
+            <?php } ?>
 
 
-            <?php if($id>0){?>
-              <a href="admin/books/<?php echo $item->bookid ?>/chapters/0/<?php echo $item->id?>" class="btn btn-info"><?php echo __('custom.addchapter') ?></a>
-            <?php }?>
+            <?php if ($id > 0) { ?>
+              <a href="admin/books/<?php echo $item->bookid ?>/chapters/0/<?php echo $item->id ?>" class="btn btn-info"><?php echo __('custom.addchapter') ?></a>
+            <?php } ?>
             <button type="submit" class="btn btn-primary"><?php echo __('custom.save') ?></button>
           </div>
         </form>

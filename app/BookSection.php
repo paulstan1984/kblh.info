@@ -59,4 +59,16 @@ class BookSection extends Model
 
     return $book;
   }
+
+  public static function getParents(int $id){
+    $item = BookSection::find($id);
+
+    if($item->parentid==0){
+      return [];
+    } else {
+      $parents = BookSection::getParents($item->parentid);
+      $parents[]=BookSection::find($item->parentid);
+      return $parents;
+    }
+  }
 }
