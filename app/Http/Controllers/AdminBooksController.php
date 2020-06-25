@@ -78,12 +78,14 @@ class AdminBooksController extends AdminBaseController
     {
         $this->loadBlocks();
         $this->data['id'] = $id;
+        $this->data['selected_section'] = $request->get('selected_section');
 
         $this->data['book'] = Book::find($bookid);
         $this->data['parentid'] = $parentid;
 
         if($id!=0){
             $this->data['item'] = BookSection::find($id);
+            $this->data['parentid'] = $this->data['item']->parentid;
         }
         else{
             $this->data['item'] = new BookSection;
@@ -137,12 +139,22 @@ class AdminBooksController extends AdminBaseController
     public function sectionmoveup(Request $request, $id)
     {
         $item = BookSection::moveup($id);
-        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?selected_section='.$item->id);
+
+        if($item->parentid==0){
+            return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?selected_section='.$item->id);
+        } else {
+            return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->parentid.'/0?selected_section='.$item->id);
+        }
     }
 
     public function sectionmovedown(Request $request, $id)
     {
         $item = BookSection::movedown($id);
-        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?selected_section='.$item->id);
+
+        if($item->parentid==0){
+            return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?selected_section='.$item->id);
+        } else {
+            return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->parentid.'/0?selected_section='.$item->id);
+        }
     }
 }

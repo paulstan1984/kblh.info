@@ -11,7 +11,7 @@ class BookSection extends Model
   
   public function subsections()
   {
-    return $this->hasMany('App\BookSection', 'id', 'parentid');
+    return $this->hasMany('App\BookSection', 'parentid', 'id')->orderby('position');
   }
 
   public static function moveup(int $id){

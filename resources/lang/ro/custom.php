@@ -55,4 +55,5 @@ return [
   'chapter' => 'Capitol',
   'chapters' => 'Capitole',
   'bookdetails' => 'Detalii carte',
+  'subsections' => 'Subcapitole',
 ];
