@@ -58,37 +58,45 @@
               </div>
 
               <div class="col-sm-12 col-md-5">
-                <div class="row">
-                  <h2 class="col-12"><?php echo __('custom.authors') ?></h2>
+                <h2><?php echo __('custom.authors') ?></h2>
+                <label><?php echo __('custom.typeauthorname') ?>: </label>
+                <input type="text" id="authors" class="form-control" data-bookid="<?php echo $item->id?>"/>
 
-                  <?php if ($item->authors->count() > 0) { ?>
-                    <div class="table-responsive">
-                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
+                <?php if ($item->authors->count() > 0) { ?>
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th><?php echo __('custom.name') ?></th>
+                          <th><?php echo __('custom.actions') ?></th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th><?php echo __('custom.name') ?></th>
+                          <th><?php echo __('custom.actions') ?></th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php foreach ($item->authors as $author) { ?>
                           <tr>
-                            <th><?php echo __('custom.name') ?></th>
+                            <td><?php echo $author->name ?></td>
+                            <td>
+                              <a class="btn btn-danger" href="admin/books/<?php echo $item->id ?>/unassignauthor/<?php echo $author->id ?>" onclick="return confirm('Confirmați?')">
+                                <i class="fas fa-trash"></i>
+                                <?php echo __('custom.delete') ?>
+                              </a>
+                            </td>
                           </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th><?php echo __('custom.name') ?></th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
-                          <?php foreach ($item->authors as $author) { ?>
-                            <tr>
-                              <td><?php echo $author->name ?></td>
-                            </tr>
-                          <?php } ?>
-                        </tbody>
-                      </table>
+                        <?php } ?>
+                      </tbody>
+                    </table>
 
 
-                    </div>
-                  <?php } else { ?>
-                    <p class="col-12"><?php echo __('custom.nodata') ?></p>
-                  <?php } ?>
-                </div>
+                  </div>
+                <?php } else { ?>
+                  <p><?php echo __('custom.nodata') ?></p>
+                <?php } ?>
 
               </div>
             </div>

@@ -56,4 +56,5 @@ return [
   'chapters' => 'Capitole',
   'bookdetails' => 'Detalii carte',
   'subsections' => 'Subcapitole',
+  'typeauthorname' => 'Tastați un nume de autor'
 ];

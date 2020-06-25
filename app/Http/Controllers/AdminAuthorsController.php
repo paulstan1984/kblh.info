@@ -21,6 +21,20 @@ class AdminAuthorsController extends AdminBaseController
         return view('admin/authors/index', $this->data);
     }
 
+    public function search(Request $request)
+    {
+        $this->loadBlocks();
+        $term = $request->get('term');
+        $query = Author::search($request);
+        $query = $query
+            ->where('name', 'like', '%'.$term.'%')
+            ->orderby('name')
+            ->take(20)
+            ->get();
+
+        return $query;
+    }
+
     public function edit(Request $request, int $id = 0)
     {
         $this->loadBlocks();

@@ -3,6 +3,25 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
  */
+
+function authorsAutocomplete() {
+    $("#authors").autocomplete({
+            source: "admin/authors/search",
+            minLength: 2,
+            select: function(event, ui) {
+                console.log("Selected: " + ui.item.name + " aka " + ui.item.id);
+                bookid = $(this).attr('data-bookid');
+                window.location.href = "admin/books/" + bookid + "/assignauthor/" + ui.item.id;
+            }
+        })
+        .autocomplete("instance")._renderItem = function(ul, item) {
+            return $("<li>")
+                .append("<div>" + item.name + "</div>")
+                .appendTo(ul);
+        };
+
+}
+
 (function($) {
     "use strict";
 
@@ -24,5 +43,7 @@
     setTimeout(function() {
         $('.alert-info').remove()
     }, 5 * 1000);
+
+    authorsAutocomplete();
 
 })(jQuery);

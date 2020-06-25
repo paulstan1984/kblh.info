@@ -37,6 +37,7 @@ Route::post(env('R_ADMIN').'/authors', 'AdminAuthorsController@index');
 Route::get(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@edit');
 Route::post(env('R_ADMIN').'/authors/edit/{id}', 'AdminAuthorsController@save');
 Route::get(env('R_ADMIN').'/authors/delete/{id}', 'AdminAuthorsController@delete');
+Route::get(env('R_ADMIN').'/authors/search', 'AdminAuthorsController@search');
 
 Route::get(env('R_ADMIN').'/categories', 'AdminCategoriesController@index');
 Route::post(env('R_ADMIN').'/categories', 'AdminCategoriesController@index');
@@ -49,6 +50,8 @@ Route::post(env('R_ADMIN').'/books', 'AdminBooksController@index');
 Route::get(env('R_ADMIN').'/books/edit/{id}', 'AdminBooksController@edit');
 Route::post(env('R_ADMIN').'/books/edit/{id}', 'AdminBooksController@save');
 Route::get(env('R_ADMIN').'/books/delete/{id}', 'AdminBooksController@delete');
+Route::get(env('R_ADMIN').'/books/{id}/assignauthor/{authorid}', 'AdminBooksController@assignauthor');
+Route::get(env('R_ADMIN').'/books/{id}/unassignauthor/{authorid}', 'AdminBooksController@unassignauthor');
 
 
 Route::get(env('R_ADMIN').'/books/{bookid}/chapters/{id}/{parentid}', 'AdminBooksController@editchapter');

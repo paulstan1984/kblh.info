@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use App\Book;
 use App\BookSection;
+use App\BookAuthor;
 
 class AdminBooksController extends AdminBaseController
 {
@@ -163,5 +164,34 @@ class AdminBooksController extends AdminBaseController
         } else {
             return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->parentid.'/0?selected_section='.$item->id);
         }
+    }
+
+    public function assignauthor(Request $request, $id, $authorid){
+        $item = BookAuthor::query() 
+            ->where('bookid', '=', $id)
+            ->where('authorid', '=', $authorid)
+            ->first();
+
+        if($item == null){
+            $item = new BookAuthor();
+            $item->bookid = $id;
+            $item->authorid = $authorid;
+            $item->save();
+        }
+
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
+    }
+
+    public function unassignauthor(Request $request, $id, $authorid){
+        $item = BookAuthor::query() 
+            ->where('bookid', '=', $id)
+            ->where('authorid', '=', $authorid)
+            ->first();
+
+        if($item != null){
+            $item->delete();
+        }
+
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
     }
 }
