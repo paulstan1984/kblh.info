@@ -197,4 +197,18 @@ class AdminBooksController extends AdminBaseController
 
         return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
     }
+
+    public function search(Request $request)
+    {
+        $this->loadBlocks();
+        $term = $request->get('term');
+        $query = Book::search($request);
+        $query = $query
+            ->where('title', 'like', '%'.$term.'%')
+            ->orderby('title')
+            ->take(20)
+            ->get();
+
+        return $query;
+    }
 }

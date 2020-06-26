@@ -5,7 +5,8 @@
  */
 
 function authorsAutocomplete() {
-    $("#authors").autocomplete({
+    if ($("#authors")) {
+        authautocomplete = $("#authors").autocomplete({
             source: "admin/authors/search",
             minLength: 2,
             select: function(event, ui) {
@@ -13,17 +14,42 @@ function authorsAutocomplete() {
                 bookid = $(this).attr('data-bookid');
                 window.location.href = "admin/books/" + bookid + "/assignauthor/" + ui.item.id;
             }
-        })
-        .autocomplete("instance")._renderItem = function(ul, item) {
-            return $("<li>")
-                .append("<div>" + item.name + "</div>")
-                .appendTo(ul);
-        };
+        });
 
+        if (authautocomplete.autocomplete("instance") != undefined) {
+            authautocomplete.autocomplete("instance")._renderItem = function(ul, item) {
+                return $("<li>")
+                    .append("<div>" + item.name + "</div>")
+                    .appendTo(ul);
+            };
+        }
+    }
+}
+
+function booksAutocomplete() {
+    if ($("#books")) {
+        bautocomplete = $("#books").autocomplete({
+            source: "admin/books/search",
+            minLength: 2,
+            select: function(event, ui) {
+                authorid = $(this).attr('data-authorid');
+                window.location.href = "admin/authors/" + authorid + "/assignbook/" + ui.item.id;
+            }
+        });
+
+        if (bautocomplete.autocomplete("instance") != undefined) {
+            bautocomplete.autocomplete("instance")._renderItem = function(ul, item) {
+                return $('<li>')
+                    .append("<div><strong>" + item.title + "</strong></div><div>" + item.description.substring(0, 100) + "</div>")
+                    .appendTo(ul);
+            };
+        }
+    }
 }
 
 (function($) {
     "use strict";
+
 
     // Add active state to sidbar nav links
     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
@@ -45,5 +71,6 @@ function authorsAutocomplete() {
     }, 5 * 1000);
 
     authorsAutocomplete();
+    booksAutocomplete();
 
 })(jQuery);

@@ -80,7 +80,7 @@
                       <tbody>
                         <?php foreach ($item->authors as $author) { ?>
                           <tr>
-                            <td><?php echo $author->name ?></td>
+                            <td><a href="admin/authors/edit/<?php echo $author->id?>"><?php echo $author->name ?></a></td>
                             <td>
                               <a class="btn btn-danger" href="admin/books/<?php echo $item->id ?>/unassignauthor/<?php echo $author->id ?>" onclick="return confirm('Confirmați?')">
                                 <i class="fas fa-trash"></i>

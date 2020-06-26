@@ -13,7 +13,7 @@ class Author extends Model
   
   public function books()
   {
-    return $this->belongsToMany('App\Book', 'books_authors', 'bookid', 'authorid');
+    return $this->belongsToMany('App\Book', 'books_authors', 'authorid', 'bookid');
   }
 
   public static function search(Request $request){

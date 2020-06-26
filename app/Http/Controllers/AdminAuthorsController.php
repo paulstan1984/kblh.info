@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use App\Author;
+use App\BookAuthor;
 
 class AdminAuthorsController extends AdminBaseController
 {
@@ -78,5 +79,37 @@ class AdminAuthorsController extends AdminBaseController
         $item = Author::find($id);
         $item->delete(); 
         return redirect(env('R_ADMIN').'/authors?msg=infodeleted');
+    }
+
+    public function assignbook(Request $request, $id, $bookid){
+        $item = BookAuthor::query() 
+            ->where('bookid', '=', $bookid)
+            ->where('authorid', '=', $id)
+            ->first();
+
+        if($item == null){
+            $item = new BookAuthor();
+            $item->bookid = $bookid;
+            $item->authorid = $id;
+            $item->save();
+        }
+
+        return redirect(env('R_ADMIN').'/authors/edit/'.$item->authorid);
+    }
+
+    public function unassignbook(Request $request, $id, $bookid){
+        $item = BookAuthor::query() 
+            ->where('bookid', '=', $bookid)
+            ->where('authorid', '=', $id)
+            ->first();
+
+        if($item != null){
+            BookAuthor::query() 
+                ->where('bookid', '=', $bookid)
+                ->where('authorid', '=', $id)
+                ->delete();
+        }
+
+        return redirect(env('R_ADMIN').'/authors/edit/'.$item->authorid);
     }
 }
