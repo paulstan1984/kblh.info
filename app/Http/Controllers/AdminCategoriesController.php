@@ -65,4 +65,18 @@ class AdminCategoriesController extends AdminBaseController
         $item->delete(); 
         return redirect(env('R_ADMIN').'/categories?msg=infodeleted');
     }
+
+    public function search(Request $request)
+    {
+        $this->loadBlocks();
+        $term = $request->get('term');
+        $query = Category::search($request);
+        $query = $query
+            ->where('name', 'like', '%'.$term.'%')
+            ->orderby('name')
+            ->take(20)
+            ->get();
+
+        return $query;
+    }
 }

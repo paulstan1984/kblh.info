@@ -59,4 +59,5 @@ return [
   'subsections' => 'Subcapitole',
   'typeauthorname' => 'Tastați un nume de autor',
   'typebookname' => 'Tastați un nume de carte',
+  'typecategory' => 'Tastați o categorie',
 ];

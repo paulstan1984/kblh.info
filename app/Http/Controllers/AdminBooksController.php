@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Book;
 use App\BookSection;
 use App\BookAuthor;
+use App\BookCategory;
 
 class AdminBooksController extends AdminBaseController
 {
@@ -192,6 +193,38 @@ class AdminBooksController extends AdminBaseController
             BookAuthor::query() 
                 ->where('bookid', '=', $id)
                 ->where('authorid', '=', $authorid)
+                ->delete();
+        }
+
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
+    }
+
+    public function assigncategory(Request $request, $id, $categoryid){
+        $item = BookCategory::query() 
+            ->where('bookid', '=', $id)
+            ->where('categoryid', '=', $categoryid)
+            ->first();
+
+        if($item == null){
+            $item = new BookCategory();
+            $item->bookid = $id;
+            $item->categoryid = $categoryid;
+            $item->save();
+        }
+
+        return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid);
+    }
+
+    public function unassigncategory(Request $request, $id, $categoryid){
+        $item = BookCategory::query() 
+            ->where('bookid', '=', $id)
+            ->where('categoryid', '=', $categoryid)
+            ->first();
+
+        if($item != null){
+            BookCategory::query() 
+                ->where('bookid', '=', $id)
+                ->where('categoryid', '=', $categoryid)
                 ->delete();
         }
 

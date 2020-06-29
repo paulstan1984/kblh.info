@@ -64,7 +64,7 @@
                           <tr>
                             <td><a href="admin/books/edit/<?php echo $book->id ?>"><?php echo $book->title ?></a></td>
                             <td><?php echo substr($book->description, 0, 200) ?></td>
-                            <td>
+                            <td nowrap>
                               <a class="btn btn-danger" href="admin/authors/<?php echo $item->id ?>/unassignbook/<?php echo $book->id ?>" onclick="return confirm('Confirmați?')">
                                 <i class="fas fa-trash"></i>
                                 <?php echo __('custom.delete') ?>

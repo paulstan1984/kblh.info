@@ -47,6 +47,27 @@ function booksAutocomplete() {
     }
 }
 
+function categoriesAutocomplete() {
+    if ($("#categories")) {
+        bautocomplete = $("#categories").autocomplete({
+            source: "admin/categories/search",
+            minLength: 2,
+            select: function(event, ui) {
+                bookid = $(this).attr('data-bookid');
+                window.location.href = "admin/books/" + bookid + "/assigncategory/" + ui.item.id;
+            }
+        });
+
+        if (bautocomplete.autocomplete("instance") != undefined) {
+            bautocomplete.autocomplete("instance")._renderItem = function(ul, item) {
+                return $('<li>')
+                    .append("<div>" + item.name + "</div>")
+                    .appendTo(ul);
+            };
+        }
+    }
+}
+
 (function($) {
     "use strict";
 
@@ -72,5 +93,6 @@ function booksAutocomplete() {
 
     authorsAutocomplete();
     booksAutocomplete();
+    categoriesAutocomplete();
 
 })(jQuery);

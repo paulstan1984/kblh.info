@@ -37,7 +37,7 @@
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           <div class="card-body">
             <div class="row">
-              <div class="col-sm-12 col-md-7">
+              <div class="col-sm-12 col-md-4">
                 <h2><?php echo __('custom.bookdetails') ?></h2>
                 <label><?php echo __('custom.title') ?>: </label>
                 <input class="form-control" type="text" name="title" value="<?php echo old('title', $item->title) ?>" />
@@ -57,7 +57,7 @@
                 <?php } ?>
               </div>
 
-              <div class="col-sm-12 col-md-5">
+              <div class="col-sm-12 col-md-4">
                 <h2><?php echo __('custom.authors') ?></h2>
                 <label><?php echo __('custom.typeauthorname') ?>: </label>
                 <input type="text" id="authors" class="form-control" data-bookid="<?php echo $item->id?>"/>
@@ -83,6 +83,49 @@
                             <td><a href="admin/authors/edit/<?php echo $author->id?>"><?php echo $author->name ?></a></td>
                             <td>
                               <a class="btn btn-danger" href="admin/books/<?php echo $item->id ?>/unassignauthor/<?php echo $author->id ?>" onclick="return confirm('Confirmați?')">
+                                <i class="fas fa-trash"></i>
+                                <?php echo __('custom.delete') ?>
+                              </a>
+                            </td>
+                          </tr>
+                        <?php } ?>
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                <?php } else { ?>
+                  <p><?php echo __('custom.nodata') ?></p>
+                <?php } ?>
+
+              </div>
+
+              <div class="col-sm-12 col-md-4">
+                <h2><?php echo __('custom.categories') ?></h2>
+                <label><?php echo __('custom.typecategory') ?>: </label>
+                <input type="text" id="categories" class="form-control" data-bookid="<?php echo $item->id?>"/>
+
+                <?php if ($item->categories->count() > 0) { ?>
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th><?php echo __('custom.name') ?></th>
+                          <th><?php echo __('custom.actions') ?></th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th><?php echo __('custom.name') ?></th>
+                          <th><?php echo __('custom.actions') ?></th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <?php foreach ($item->categories as $category) { ?>
+                          <tr>
+                            <td><a href="admin/categories/edit/<?php echo $category->id?>"><?php echo $category->name ?></a></td>
+                            <td>
+                              <a class="btn btn-danger" href="admin/books/<?php echo $item->id ?>/unassigncategory/<?php echo $category->id ?>" onclick="return confirm('Confirmați?')">
                                 <i class="fas fa-trash"></i>
                                 <?php echo __('custom.delete') ?>
                               </a>
