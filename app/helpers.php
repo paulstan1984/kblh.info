@@ -20,3 +20,31 @@ if (! function_exists('paginatedQuery')) {
   }
 }
 
+if (! function_exists('getOrderDir')) {
+  function getOrderDir($pagination, $field){
+    
+    if($pagination->orderby == $field && $pagination->orderbydir == 'asc'){
+      return 'desc';
+    }
+    if($pagination->orderby == $field && $pagination->orderbydir == 'desc'){
+      return 'asc';
+    }
+
+    return 'asc';
+  }
+}
+
+if (! function_exists('orderIcon')) {
+  function orderIcon($pagination, $field){
+    
+    if($pagination->orderby == $field && $pagination->orderbydir == 'asc'){
+      return '<i class="fas fa-arrow-up"></i>';
+    }
+    if($pagination->orderby == $field && $pagination->orderbydir == 'desc'){
+      return '<i class="fas fa-arrow-down"></i>';
+    }
+
+    return'';
+  }
+}
+

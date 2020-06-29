@@ -38,8 +38,18 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th><?php echo __('custom.id')?></th>
-                                    <th><?php echo __('custom.name')?></th>
+                                    <th>
+                                        <a href="<?php echo paginatedQuery('admin/authors', $results, ['orderby'=>'id','orderbydir' => getOrderDir($results, 'id')])?>">
+                                            <?php echo __('custom.id')?> 
+                                            <?php echo orderIcon($results, 'id')?>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="<?php echo paginatedQuery('admin/authors', $results, ['orderby'=>'name','orderbydir' => getOrderDir($results, 'name')])?>">
+                                            <?php echo __('custom.name')?>
+                                            <?php echo orderIcon($results, 'name')?>
+                                        </a>
+                                    </th>
                                     <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </thead>
