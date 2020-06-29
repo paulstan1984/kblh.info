@@ -27,8 +27,23 @@
 
             <div class="card mb-4">
 
-                <div class="card-header">
-                    <a class="btn btn-primary" href="admin/authors/edit/0"><?php echo __('custom.addnew')?></a>
+                <div class="card-header row">
+                    <div class="col-xs-12 col-md-3">
+                        <a class="btn btn-primary" href="admin/authors/edit/0"><?php echo __('custom.addnew')?></a>
+                    </div>
+                    <form class="col-xs-12 col-md-9 form-row" method="GET" action="<?php echo paginatedQuery('admin/authors', $results, ['page'=>1])?>">
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <input class="form-control" type="text" name="name" value="<?php echo old('name', $results->name)?>" placeholder="<?php echo __('custom.name')?>"/>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <input class="btn btn-primary" type="submit" value="<?php echo __('custom.search')?>"/>
+                        </div>
+                    </form>
                 </div>
                 
 

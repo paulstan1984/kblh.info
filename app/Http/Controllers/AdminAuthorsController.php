@@ -18,6 +18,7 @@ class AdminAuthorsController extends AdminBaseController
         $pagination = $this->getPagination($request);
         $query = Author::search($request);
         $this->data['results'] = $this->applyPagination($query, $pagination);
+        $this->data['results']->name = $request->get('name');
         
         return view('admin/authors/index', $this->data);
     }

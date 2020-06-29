@@ -3,9 +3,12 @@
 if (! function_exists('paginatedQuery')) {
   function paginatedQuery($baseUrl, $pagination, $updateParams){
     $params = [];
-    $params['page'] = $pagination->page;
-    $params['orderby'] = $pagination->orderby;
-    $params['orderbydir'] = $pagination->orderbydir;
+
+    foreach($pagination as $p=>$v){
+      if($p!='results'){
+        $params[$p]=$v;
+      }
+    }
 
     foreach($updateParams as $p=>$v){
       $params[$p]=$v;
