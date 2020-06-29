@@ -36,7 +36,7 @@ class AdminBaseController extends Controller
             ->get();
 
         return (object)[
-            'nrPages' => $nrPages,
+            'nrpages' => $nrPages,
             'page'    => $pagination->page,
             'orderby' => $pagination->orderBy,
             'orderbydir' => $pagination->orderByDir,

@@ -87,7 +87,7 @@
                             </li>
 
                             <?php for($i=$results->page-10;$i<$results->page+10;$i++){
-                            if($i>=1 && $i<=$results->nrPages) {?>
+                            if($i>=1 && $i<=$results->nrpages) {?>
                             <li class="paginate_button page-item <?php echo $i==$results->page?'active':''?>">
                                 <a href="#" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
                             </li>

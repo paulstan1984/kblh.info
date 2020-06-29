@@ -87,14 +87,14 @@
                             </li>
 
                             <?php for($i=$results->page-10;$i<$results->page+10;$i++){
-                            if($i>=1 && $i<=$results->nrPages) {?>
+                            if($i>=1 && $i<=$results->nrpages) {?>
                             <li class="paginate_button page-item <?php echo $i==$results->page?'active':''?>">
-                                <a href="#" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
+                                <a href="<?php echo paginatedQuery('admin/authors', $results, ['page'=>$i])?>" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
                             </li>
                             <?php }}?>
                             
                             <li class="paginate_button page-item next">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/authors', $results, ['page'=>$results->nrpages])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.last')?>
                                 </a>
                             </li>
