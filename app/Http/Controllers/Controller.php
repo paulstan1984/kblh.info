@@ -28,16 +28,16 @@ class Controller extends BaseController
             'orderByDir' => 'asc'
         ];
         
-        if(!empty($request->page)){
-            $pagination['page'] = $request->page;
+        if(!empty($request->get('page'))){
+            $pagination['page'] = $request->get('page');
         }
         
-        if(!empty($request->orderby)){
-            $pagination['orderBy'] = $request->orderby;
+        if(!empty($request->get('orderby'))){
+            $pagination['orderBy'] = $request->get('orderby');
         }
         
-        if(!empty($request->orderbydir)){
-            $pagination['orderByDir'] = $request->orderbydir;
+        if(!empty($request->get('orderbydir'))){
+            $pagination['orderByDir'] = $request->get('orderbydir');
         }
           
         return (object)$pagination;

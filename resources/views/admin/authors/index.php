@@ -81,7 +81,7 @@
                     <div class="dataTables_paginate paging_simple_numbers pullright">
                         <ul class="pagination">
                             <li class="paginate_button page-item previous">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/authors', $results, ['page'=>1])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.first')?>
                                 </a>
                             </li>

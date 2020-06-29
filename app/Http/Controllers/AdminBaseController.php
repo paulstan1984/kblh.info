@@ -22,7 +22,7 @@ class AdminBaseController extends Controller
 
         $this->data = array_merge($this->data, array(
             'header' => view('admin/blocks/header', $this->data)->render(),
-            'footer' => view('admin/blocks/footer', $this->data)->render()
+            'footer' => view('admin/blocks/footer', $this->data)->render(),
         ));
     }
 
@@ -38,6 +38,8 @@ class AdminBaseController extends Controller
         return (object)[
             'nrPages' => $nrPages,
             'page'    => $pagination->page,
+            'orderby' => $pagination->orderBy,
+            'orderbydir' => $pagination->orderByDir,
             'results' => $query,
         ];
     }

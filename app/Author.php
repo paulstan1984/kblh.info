@@ -18,6 +18,10 @@ class Author extends Model
 
   public static function search(Request $request){
     $items = Author::query();
+
+    if($request->get('name')){
+      $items = $items->where('name', 'like', '%'.$request->get('name').'%');
+    }
             
     return $items;
   }
