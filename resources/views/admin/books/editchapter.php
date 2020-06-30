@@ -51,7 +51,7 @@
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           <div class="card-body">
             <div class="row">
-              <div class="col-sm-12 col-md-7">
+              <div class="col-sm-12 col-md-6">
                 <label><?php echo __('custom.title') ?>: </label>
                 <input class="form-control" type="text" name="title" value="<?php echo old('title', $item->title) ?>" />
 
@@ -79,6 +79,16 @@
                 <?php } ?>
               </div>
 
+              <div class="col-sm-12 col-md-6">
+                <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
+                  \documentclass{article}
+
+                  \begin{document}
+                  \section{<?php echo $item->title?>}
+                  <?php echo $item->description?>
+                  \end{document}
+                </latex-js>
+              </div>
             </div>
 
             <div class="row">
