@@ -20,7 +20,8 @@ class AdminBooksController extends AdminBaseController
         $pagination = $this->getPagination($request);
         $query = Book::search($request);
         $this->data['results'] = $this->applyPagination($query, $pagination);
-        
+        $this->data['results']->title = $request->get('title');
+
         return view('admin/books/index', $this->data);
     }
 

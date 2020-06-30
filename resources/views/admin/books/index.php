@@ -27,8 +27,23 @@
 
             <div class="card mb-4">
 
-                <div class="card-header">
-                    <a class="btn btn-primary" href="admin/books/edit/0"><?php echo __('custom.addnew')?></a>
+                <div class="card-header row">
+                    <div class="col-xs-12 col-md-3">
+                        <a class="btn btn-primary" href="admin/books/edit/0"><?php echo __('custom.addnew')?></a>
+                    </div>
+                    <form class="col-xs-12 col-md-9 form-row" method="GET" action="<?php echo paginatedQuery('admin/books', $results, ['page'=>1])?>">
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <input class="form-control" type="text" name="title" value="<?php echo old('title', $results->title)?>" placeholder="<?php echo __('custom.title')?>"/>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <input class="btn btn-primary" type="submit" value="<?php echo __('custom.search')?>"/>
+                        </div>
+                    </form>
                 </div>
                 
                 <?php if(count($results->results)>0){?>
@@ -37,9 +52,19 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th><?php echo __('custom.title')?></th>
+                                    <th>
+                                        <a href="<?php echo paginatedQuery('admin/books', $results, ['orderby'=>'title','orderbydir' => getOrderDir($results, 'title')])?>">
+                                            <?php echo __('custom.title')?> 
+                                            <?php echo orderIcon($results, 'title')?>
+                                        </a> 
+                                    </th>
                                     <th><?php echo __('custom.description')?></th>
-                                    <th nowrap><?php echo __('custom.dateadded')?></th>
+                                    <th nowrap>
+                                        <a href="<?php echo paginatedQuery('admin/books', $results, ['orderby'=>'created_at','orderbydir' => getOrderDir($results, 'created_at')])?>">
+                                            <?php echo __('custom.dateadded')?> 
+                                            <?php echo orderIcon($results, 'created_at')?>
+                                        </a>     
+                                    </th>
                                     <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </thead>
@@ -82,7 +107,7 @@
                     <div class="dataTables_paginate paging_simple_numbers pullright">
                         <ul class="pagination">
                             <li class="paginate_button page-item previous">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/books', $results, ['page'=>1])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.first')?>
                                 </a>
                             </li>
@@ -90,12 +115,12 @@
                             <?php for($i=$results->page-10;$i<$results->page+10;$i++){
                             if($i>=1 && $i<=$results->nrpages) {?>
                             <li class="paginate_button page-item <?php echo $i==$results->page?'active':''?>">
-                                <a href="#" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
+                                <a href="<?php echo paginatedQuery('admin/books', $results, ['page'=>$i])?>" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
                             </li>
                             <?php }}?>
                             
                             <li class="paginate_button page-item next">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/books', $results, ['page'=>$results->nrpages])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.last')?>
                                 </a>
                             </li>

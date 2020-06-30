@@ -30,6 +30,18 @@ class Book extends Model
   public static function search(Request $request){
     $items = Book::query();
             
+    if($request->get('title')){
+
+      $keyword = $request->get('title');
+
+      $items = $items->where(
+        function($query) use ($keyword) {
+          $query->where('title', 'like', '%'.$keyword.'%')
+                ->orwhere('description', 'like', '%'.$keyword.'%');
+        }
+      );
+    }
+
     return $items;
   }
 

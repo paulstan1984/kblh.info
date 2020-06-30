@@ -38,8 +38,18 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th><?php echo __('custom.id')?></th>
-                                    <th><?php echo __('custom.name')?></th>
+                                    <th>
+                                        <a href="<?php echo paginatedQuery('admin/categories', $results, ['orderby'=>'id','orderbydir' => getOrderDir($results, 'id')])?>">
+                                            <?php echo __('custom.id')?> 
+                                            <?php echo orderIcon($results, 'id')?>
+                                        </a> 
+                                    </th>
+                                    <th>
+                                        <a href="<?php echo paginatedQuery('admin/categories', $results, ['orderby'=>'name','orderbydir' => getOrderDir($results, 'name')])?>">
+                                            <?php echo __('custom.name')?> 
+                                            <?php echo orderIcon($results, 'name')?>
+                                        </a>     
+                                    </th>
                                     <th><?php echo __('custom.actions')?></th>
                                 </tr>
                             </thead>
@@ -81,7 +91,7 @@
                     <div class="dataTables_paginate paging_simple_numbers pullright">
                         <ul class="pagination">
                             <li class="paginate_button page-item previous">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/categories', $results, ['page'=>1])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.first')?>
                                 </a>
                             </li>
@@ -89,12 +99,12 @@
                             <?php for($i=$results->page-10;$i<$results->page+10;$i++){
                             if($i>=1 && $i<=$results->nrpages) {?>
                             <li class="paginate_button page-item <?php echo $i==$results->page?'active':''?>">
-                                <a href="#" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
+                                <a href="<?php echo paginatedQuery('admin/categories', $results, ['page'=>$i])?>" aria-controls="dataTable" class="page-link"><?php echo $i?></a>
                             </li>
                             <?php }}?>
                             
                             <li class="paginate_button page-item next">
-                                <a href="#" aria-controls="dataTable" class="page-link">
+                                <a href="<?php echo paginatedQuery('admin/categories', $results, ['page'=>$results->nrpages])?>" aria-controls="dataTable" class="page-link">
                                     <?php echo __('custom.last')?>
                                 </a>
                             </li>
