@@ -71,7 +71,7 @@
                 <?php } ?>
 
                 <label><?php echo __('custom.description') ?>: </label>
-                <textarea rows="10" class="form-control" name="description"><?php echo old('description', $item->description) ?></textarea>
+                <textarea rows="10" class="form-control" name="description" id="content-container"><?php echo old('description', $item->description) ?></textarea>
                 <?php if ($errors->get('description')) { ?>
                   <p class="text-danger">
                     <?php echo implode(',', $errors->get('description')); ?>
@@ -79,14 +79,10 @@
                 <?php } ?>
               </div>
 
-              <div class="col-sm-12 col-md-6">
+              <div class="col-sm-12 col-md-6" id="latex-container">
+                <h2><?php echo __('custom.preview') ?></h2>
                 <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
-                  \documentclass{article}
-
-                  \begin{document}
-                  \section{<?php echo $item->title?>}
                   <?php echo $item->description?>
-                  \end{document}
                 </latex-js>
               </div>
             </div>

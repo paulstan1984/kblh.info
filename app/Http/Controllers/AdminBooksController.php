@@ -67,6 +67,7 @@ class AdminBooksController extends AdminBaseController
             
         $item->save();
 
+        
         return redirect(env('R_ADMIN').'/books?msg=infosaved');
     } 
 
@@ -132,11 +133,7 @@ class AdminBooksController extends AdminBaseController
             
         $item->save();
 
-        if($item->parentid==0){
-            return redirect(env('R_ADMIN').'/books/edit/'.$item->bookid.'?msg=infosaved');
-        } else {
-            return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->parentid.'/0?msg=infosaved');
-        }
+        return redirect(env('R_ADMIN').'/books/'.$item->bookid.'/chapters/'.$item->id.'/'.$item->parentid);
     } 
 
     public function deletechapter(Request $request, $bookid, $id)

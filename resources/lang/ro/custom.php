@@ -62,4 +62,5 @@ return [
   'typecategory' => 'Tastați o categorie',
 
   'search' => 'Caută',
+  'preview' => 'Previzualizare'
 ];

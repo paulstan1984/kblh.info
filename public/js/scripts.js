@@ -5,7 +5,7 @@
  */
 
 function authorsAutocomplete() {
-    if ($("#authors")) {
+    if ($("#authors") && $("#authors").length > 0) {
         authautocomplete = $("#authors").autocomplete({
             source: "admin/authors/search",
             minLength: 2,
@@ -27,7 +27,7 @@ function authorsAutocomplete() {
 }
 
 function booksAutocomplete() {
-    if ($("#books")) {
+    if ($("#books") && $("#books").length) {
         bautocomplete = $("#books").autocomplete({
             source: "admin/books/search",
             minLength: 2,
@@ -48,8 +48,8 @@ function booksAutocomplete() {
 }
 
 function categoriesAutocomplete() {
-    if ($("#categories")) {
-        bautocomplete = $("#categories").autocomplete({
+    if ($("#categories") && $("#categories").length) {
+        cautocomplete = $("#categories").autocomplete({
             source: "admin/categories/search",
             minLength: 2,
             select: function(event, ui) {
@@ -58,8 +58,8 @@ function categoriesAutocomplete() {
             }
         });
 
-        if (bautocomplete.autocomplete("instance") != undefined) {
-            bautocomplete.autocomplete("instance")._renderItem = function(ul, item) {
+        if (cautocomplete.autocomplete("instance") != undefined) {
+            cautocomplete.autocomplete("instance")._renderItem = function(ul, item) {
                 return $('<li>')
                     .append("<div>" + item.name + "</div>")
                     .appendTo(ul);
@@ -68,16 +68,15 @@ function categoriesAutocomplete() {
     }
 }
 
-function previewLatex() {
+function previewLatex(textcontainer, container) {
+    var text = $(textcontainer).val();
+    console.log(text);
+    var generator = new latexjs.HtmlGenerator({ hyphenate: false })
+    generator = latexjs.parse(text, { generator: generator })
 
-
-    let latex = "Hi, this is a line of text."
-
-    let generator = new HtmlGenerator({ hyphenate: false })
-
-    let doc = parse(latex, { generator: generator }).htmlDocument()
-
-    console.log(doc.documentElement.outerHTML)
+    console.log(latexjs);
+    $(container).find('.page').html('');
+    //$(container).find('.page').append(generator.domFragment());
 }
 
 (function($) {
@@ -107,5 +106,4 @@ function previewLatex() {
     booksAutocomplete();
     categoriesAutocomplete();
 
-    previewLatex();
 })(jQuery);
