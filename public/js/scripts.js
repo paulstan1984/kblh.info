@@ -68,17 +68,6 @@ function categoriesAutocomplete() {
     }
 }
 
-function previewLatex(textcontainer, container) {
-    var text = $(textcontainer).val();
-    console.log(text);
-    var generator = new latexjs.HtmlGenerator({ hyphenate: false })
-    generator = latexjs.parse(text, { generator: generator })
-
-    console.log(latexjs);
-    $(container).find('.page').html('');
-    //$(container).find('.page').append(generator.domFragment());
-}
-
 (function($) {
     "use strict";
 
