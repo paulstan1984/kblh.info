@@ -37,7 +37,7 @@
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           <div class="card-body">
             <div class="row">
-              <div class="col-sm-12 col-md-4">
+              <div class="col-sm-12 col-md-12">
                 <h2><?php echo __('custom.bookdetails') ?></h2>
                 <label><?php echo __('custom.title') ?>: </label>
                 <input class="form-control" type="text" name="title" value="<?php echo old('title', $item->title) ?>" />
@@ -49,7 +49,7 @@
                 <?php } ?>
 
                 <label><?php echo __('custom.description') ?>: </label>
-                <textarea rows="10" class="form-control" name="description"><?php echo old('description', $item->description) ?></textarea>
+                <textarea rows="10" class="form-control" id="editor" name="description"><?php echo old('description', $item->description) ?></textarea>
                 <?php if ($errors->get('description')) { ?>
                   <p class="text-danger">
                     <?php echo implode(',', $errors->get('description')); ?>
@@ -57,7 +57,7 @@
                 <?php } ?>
               </div>
 
-              <div class="col-sm-12 col-md-4">
+              <div class="col-sm-12 col-md-6">
                 <h2><?php echo __('custom.authors') ?></h2>
                 <label><?php echo __('custom.typeauthorname') ?>: </label>
                 <input type="text" id="authors" class="form-control" data-bookid="<?php echo $item->id?>"/>
@@ -100,7 +100,7 @@
 
               </div>
 
-              <div class="col-sm-12 col-md-4">
+              <div class="col-sm-12 col-md-6">
                 <h2><?php echo __('custom.categories') ?></h2>
                 <label><?php echo __('custom.typecategory') ?>: </label>
                 <input type="text" id="categories" class="form-control" data-bookid="<?php echo $item->id?>"/>
