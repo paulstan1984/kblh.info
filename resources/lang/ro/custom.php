@@ -63,5 +63,8 @@ return [
 
   'search' => 'Caută',
   'preview' => 'Previzualizare',
-  'contact' => 'Contact'
+  'contact' => 'Contact',
+
+  'siteTitle' => 'Academia de Kabala',
+  'letsstart' => 'Să începem',
 ];

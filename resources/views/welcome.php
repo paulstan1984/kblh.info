@@ -26,7 +26,7 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/public-style.css" rel="stylesheet">
   
   <!-- =======================================================
   * Template Name: OnePage - v2.1.0
@@ -36,23 +36,21 @@
   ======================================================== -->
 </head>
 
-<body>
+<body id="top">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto">
-        <a href="<?php echo env('BASE_URL')?>">
-            <img src="img/logo-kblh.png"/>
+        <a href="#top">
+            <img src="img/logo-kblh.png" class="img-fluid"/>
         </a>
       </h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html"><?php echo __('custom.home');?></a></li>
+          <li class="active"><a href="#top"><?php echo __('custom.home');?></a></li>
           <li><a href="#about"><?php echo __('custom.books');?></a></li>
           <li><a href="#services"><?php echo __('custom.authors');?></a></li>
           <li><a href="#portfolio"><?php echo __('custom.categories');?></a></li>
@@ -68,44 +66,35 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>One Page Bootstrap Website Template</h1>
-          <h2>We are team of talanted designers</h2>
+          <h1><?php echo __('custom.siteTitle')?></h1>
         </div>
       </div>
       <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="#mainsections" class="btn-get-started scrollto"><?php echo __('custom.letsstart')?></a>
       </div>
 
-      <div class="row icon-boxes">
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+      <div class="row icon-boxes" id="mainsections">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <h4 class="title"><a href=""><?php echo __('custom.books')?></a></h4>
             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <div class="icon"><i class="ri-palette-line"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <h4 class="title"><a href=""><?php echo __('custom.authors')?></a></h4>
             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
           <div class="icon-box">
             <div class="icon"><i class="ri-command-line"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <h4 class="title"><a href=""><?php echo __('custom.categories')?></a></h4>
             <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
-          <div class="icon-box">
-            <div class="icon"><i class="ri-fingerprint-line"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
           </div>
         </div>
 
