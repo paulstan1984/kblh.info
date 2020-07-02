@@ -70,16 +70,17 @@ function categoriesAutocomplete() {
 
 function loadDocumentEditor() {
     if ($('#editor').length > 0) {
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                const toolbarContainer = document.querySelector('#toolbar-container');
+        // ClassicEditor
+        //     .create(document.querySelector('#editor'))
+        //     .then(editor => {
+        //         const toolbarContainer = document.querySelector('#toolbar-container');
 
-                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        //         toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
+        CKEDITOR.replace('editor');
     }
 }
 
