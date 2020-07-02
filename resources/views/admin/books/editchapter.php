@@ -51,7 +51,7 @@
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
           <div class="card-body">
             <div class="row">
-              <div class="col-sm-12 col-md-6">
+              <div class="col-sm-12">
                 <label><?php echo __('custom.title') ?>: </label>
                 <input class="form-control" type="text" name="title" value="<?php echo old('title', $item->title) ?>" />
 
@@ -71,7 +71,13 @@
                 <?php } ?>
 
                 <label><?php echo __('custom.description') ?>: </label>
-                <textarea rows="10" class="form-control" name="description" id="content-container"><?php echo old('description', $item->description) ?></textarea>
+                
+                <!-- The toolbar will be rendered in this container. -->
+                <div id="toolbar-container"></div>
+
+                <!-- This container will become the editable. -->
+                <textarea rows="30" class="form-control" name="description" id="editor"><?php echo old('description', $item->description) ?></textarea>
+
                 <?php if ($errors->get('description')) { ?>
                   <p class="text-danger">
                     <?php echo implode(',', $errors->get('description')); ?>
@@ -79,12 +85,6 @@
                 <?php } ?>
               </div>
 
-              <div class="col-sm-12 col-md-6" id="latex-container">
-                <h2><?php echo __('custom.preview') ?></h2>
-                <latex-js baseURL="https://cdn.jsdelivr.net/npm/latex.js/dist/">
-                  <?php echo $item->description?>
-                </latex-js>
-              </div>
             </div>
 
             <div class="row">
