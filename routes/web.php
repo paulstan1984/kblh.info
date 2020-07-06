@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PublicController@index');
+Route::get(env('R_BOOKS'), 'PublicController@books');
 
 Route::get(env('R_ADMIN'), 'AdminController@index');
 

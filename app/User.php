@@ -22,6 +22,16 @@ class User extends Model
 
         return $counters;
     }
+
+    public static function getPublicCounters(){
+        $counters = (object)[
+            'nrAuthors' => DB::table('authors')->count(),
+            'nrBooks' => DB::table('books')->count(),
+            'nrCategories' => DB::table('categories')->count(),
+        ];
+
+        return $counters;
+    }
     
     public static function search(Request $request){
         $items = User::query();

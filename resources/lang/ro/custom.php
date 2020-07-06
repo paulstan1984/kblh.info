@@ -67,4 +67,14 @@ return [
 
   'siteTitle' => 'Academia de Kabala',
   'letsstart' => 'Să începem',
+
+  'about_us_title' => 'Despre Noi',
+  'about_us_description' => 'STUDIUL CABALA - "Cabala nu este studiată de dragul de a dobândi cunoştinţe teoretice, ci pentru a ne ajuta să vedem şi să percepem ceea ce ne este ascuns."',
+
+  'usefull_links' => 'Link-uri utile',
+  'newsletter' => 'Abonare Newsletter',
+  'newsletter_description' => 'Pentru mai multe informații și noutăți vă rugăm să vă abonați la newsletter.',
+  'subscribe' => 'Abonare',
+
+  'designedby' => 'Design realizat de',
 ];
