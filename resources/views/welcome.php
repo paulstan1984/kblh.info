@@ -21,7 +21,7 @@
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
-            <h4 class="title"><a href=""><?php echo __('custom.books')?></a></h4>
+            <h4 class="title"><a href="<?php echo env('R_BOOKS')?>"><?php echo __('custom.books')?></a></h4>
             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
           </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
           <div class="icon-box">
             <div class="icon"><i class="ri-palette-line"></i></div>
-            <h4 class="title"><a href=""><?php echo __('custom.authors')?></a></h4>
+            <h4 class="title"><a href="<?php echo env('R_AUTHORS')?>"><?php echo __('custom.authors')?></a></h4>
             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
           </div>
         </div>

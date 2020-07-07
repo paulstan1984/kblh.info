@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\User;
 use App\Book;
 use App\Author;
+use App\Category;
 
 class PublicController extends Controller
 {
@@ -38,7 +39,26 @@ class PublicController extends Controller
         $this->data['results'] = $this->applyPagination($query, $pagination);
         $this->data['results']->title = $request->get('title');
 
+        $this->data['categories'] = Category::all();
+
         return view('books', $this->data);
+    }
+
+    public function bookdetails(Request $request, int $id)
+    {
+        $this->loadBlocks();
+
+        $this->data['id'] = $id;
+
+        if($id!=0){
+            $this->data['item'] = Book::find($id);
+        }
+        else{
+            $this->data['item'] = new Book;
+        }       
+        
+
+        return view('bookdetails', $this->data);
     }
 
     public function authors(Request $request)

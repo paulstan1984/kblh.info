@@ -28,6 +28,13 @@
 
         <div class="row">
           <h2 class="col-12 p-0"><?php echo __('custom.search') ?></h2>
+          <?php if($categories->count()>0){?>
+            <div class="col-12 p-0">
+              <?php foreach ($categories as $category) { ?>
+                <a class="badge badge-primary"><?php echo $category->name ?></a>`
+              <?php }?>
+            </div>
+          <?php }?>
           <form class="col-12 p-0 mb-3 form-row" method="GET" action="<?php echo paginatedQuery('books', $results, ['page' => 1]) ?>">
             <div class="col-auto">
               <div class="input-group">
