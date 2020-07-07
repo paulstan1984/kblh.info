@@ -29,13 +29,29 @@
         <div class="row">
           <h2 class="col-12 p-0"><?php echo __('custom.search') ?></h2>
           <?php if($categories->count()>0){?>
-            <div class="col-12 p-0">
+            <div class="col-12 p-0 mb-2">
               <?php foreach ($categories as $category) { ?>
-                <a class="badge badge-primary"><?php echo $category->name ?></a>`
+                <a href="<?php echo env('R_BOOKS')?>?category_id=<?php echo $category->id?>" class="badge badge-primary"><?php echo $category->name ?></a>
               <?php }?>
             </div>
           <?php }?>
+
+          <?php if($authors->count()>0){?>
+            <div class="col-12 p-0 mb-2">
+              <?php foreach ($authors as $author) { ?>
+                <a href="<?php echo env('R_BOOKS')?>?author_id=<?php echo $author->id?>" class="badge badge-secondary"><?php echo $author->name ?></a>
+              <?php }?>
+            </div>
+          <?php }?>
+
           <form class="col-12 p-0 mb-3 form-row" method="GET" action="<?php echo paginatedQuery('books', $results, ['page' => 1]) ?>">
+            <?php if(!empty(old('category_id', $results->category_id))){?>
+            <input type="hidden" name="category_id" value="<?php echo old('category_id', $results->category_id) ?>"/>
+            <?php }?>
+            <?php if(!empty(old('author_id', $results->author_id))){?>
+            <input type="hidden" name="author_id" value="<?php echo old('author_id', $results->author_id) ?>"/>
+            <?php }?>
+
             <div class="col-auto">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -63,7 +79,7 @@
                   <?php if ($item->authors->count() > 0) { ?>
                     <p>
                       <?php foreach ($item->authors as $author) { ?>
-                        <span class="badge badge-secondary"><?php echo $author->name ?></span>
+                        <a href="<?php echo env('R_BOOKS')?>?author_id=<?php echo $author->id?>" class="badge badge-secondary"><?php echo $author->name ?></a>
                       <?php } ?>
                     </p>
                   <?php } ?>
