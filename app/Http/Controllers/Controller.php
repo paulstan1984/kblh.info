@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class Controller extends BaseController
 {
@@ -41,6 +42,24 @@ class Controller extends BaseController
         }
           
         return (object)$pagination;
+    }
+
+    protected static function applyPagination(Builder $query, $pagination) {
+        $pageSize = 10;
+
+        $nrPages = ceil($query->count() / $pageSize) ;
+        $query = $query->orderBy($pagination->orderBy, $pagination->orderByDir)
+            ->skip(($pagination->page - 1) * $pageSize)
+            ->take(10)
+            ->get();
+
+        return (object)[
+            'nrpages' => $nrPages,
+            'page'    => $pagination->page,
+            'orderby' => $pagination->orderBy,
+            'orderbydir' => $pagination->orderByDir,
+            'results' => $query,
+        ];
     }
 
     protected function loadNotificationAndErrorMessages(Request $request){

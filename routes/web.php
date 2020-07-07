@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PublicController@index');
 Route::get(env('R_BOOKS'), 'PublicController@books');
+Route::get(env('R_AUTHORS'), 'PublicController@authors');
 
 Route::get(env('R_ADMIN'), 'AdminController@index');
 

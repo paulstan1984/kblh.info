@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use App\User;
+use App\Book;
+use App\Author;
 
 class PublicController extends Controller
 {
@@ -31,6 +33,23 @@ class PublicController extends Controller
     {
         $this->loadBlocks();
 
+        $pagination = $this->getPagination($request);
+        $query = Book::search($request);
+        $this->data['results'] = $this->applyPagination($query, $pagination);
+        $this->data['results']->title = $request->get('title');
+
         return view('books', $this->data);
+    }
+
+    public function authors(Request $request)
+    {
+        $this->loadBlocks();
+
+        $pagination = $this->getPagination($request);
+        $query = Author::search($request);
+        $this->data['results'] = $this->applyPagination($query, $pagination);
+        $this->data['results']->name = $request->get('name');
+
+        return view('authors', $this->data);
     }
 }

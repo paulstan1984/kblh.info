@@ -12,10 +12,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2><?php echo __('custom.books') ?></h2>
+          <h2><?php echo __('custom.authors') ?></h2>
           <ol>
             <li><a href="<?php echo env('BASE_URL') ?>">Home</a></li>
-            <li><?php echo __('custom.books') ?></li>
+            <li><?php echo __('custom.authors') ?></li>
           </ol>
         </div>
 
@@ -28,13 +28,13 @@
 
         <div class="row">
           <h2 class="col-12 p-0"><?php echo __('custom.search') ?></h2>
-          <form class="col-12 p-0 mb-3 form-row" method="GET" action="<?php echo paginatedQuery('books', $results, ['page' => 1]) ?>">
+          <form class="col-12 p-0 mb-3 form-row" method="GET" action="<?php echo paginatedQuery('authors', $results, ['page' => 1]) ?>">
             <div class="col-auto">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fas fa-search-plus"></i></div>
                 </div>
-                <input class="form-control" type="text" name="title" value="<?php echo old('title', $results->title) ?>" placeholder="<?php echo __('custom.title') ?>" />
+                <input class="form-control" type="text" name="name" value="<?php echo old('name', $results->name) ?>" placeholder="<?php echo __('custom.name') ?>" />
               </div>
             </div>
             <div class="col-auto">
@@ -50,17 +50,14 @@
             <?php foreach ($results->results as $item) { ?>
               <div class="card col-xs-12 col-md-4">
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo $item->title ?></h5>
-                  <p class="card-text"><?php echo strip_tags($item->description) ?></p>
-
-                  <?php if ($item->authors->count() > 0) { ?>
-                    <p>
-                      <?php foreach ($item->authors as $author) { ?>
-                        <span class="badge badge-secondary"><?php echo $author->name ?></span>
+                  <h5 class="card-title"><?php echo $item->name ?></h5>
+                  <?php if ($item->books->count() > 0) { ?>
+                    <ul class="ml-0 pl-0">
+                      <?php foreach ($item->books as $book) { ?>
+                        <li><?php echo $book->title ?></li>
                       <?php } ?>
-                    </p>
+                    </ul>
                   <?php } ?>
-                  <a href="#" class="btn btn-primary"><?php echo __('custom.details') ?></a>
                 </div>
               </div>
             <?php } ?>
