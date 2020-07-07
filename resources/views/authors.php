@@ -52,9 +52,9 @@
                 <div class="card-body">
                   <h5 class="card-title"><?php echo $item->name ?></h5>
                   <?php if ($item->books->count() > 0) { ?>
-                    <ul class="ml-0 pl-0">
+                    <ul class="ml-0 pl-0 list-inline">
                       <?php foreach ($item->books as $book) { ?>
-                        <li><?php echo $book->title ?></li>
+                        <li><a href="<?php echo env('R_BOOK').'/'.$book->id?>"><?php echo $book->title ?></a></li>
                       <?php } ?>
                     </ul>
                   <?php } ?>

@@ -37,7 +37,7 @@
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
           <div class="icon-box">
             <div class="icon"><i class="ri-command-line"></i></div>
-            <h4 class="title"><a href=""><?php echo __('custom.categories')?></a></h4>
+            <h4 class="title"><a href="<?php echo env('R_BOOKS')?>"><?php echo __('custom.categories')?></a></h4>
             <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
           </div>
         </div>

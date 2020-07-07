@@ -83,7 +83,7 @@
                       <?php } ?>
                     </p>
                   <?php } ?>
-                  <a href="#" class="btn btn-primary"><?php echo __('custom.details') ?></a>
+                  <a href="<?php echo env('R_BOOK').'/'.$item->id?>" class="btn btn-primary"><?php echo __('custom.details') ?></a>
                 </div>
               </div>
             <?php } ?>
