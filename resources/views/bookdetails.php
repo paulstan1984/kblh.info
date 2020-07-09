@@ -30,9 +30,7 @@
           <div class="col-xs-12 col-md-4 bd-sidebar">
             <ul class="nav flex-column">
               <?php foreach($item->chapters as $chapter){?>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo env('R_BOOK').'/'.$item->id?>#chapter-<?php echo $chapter->id?>"><?php echo $chapter->title?></a>
-              </li>
+                <?php echo chapter_menu($chapter) ?>
               <?php } ?>
             </ul>
           </div>
@@ -41,8 +39,7 @@
             <?php echo $item->description ?>
 
             <?php foreach($item->chapters as $chapter){?>
-              <div id="chapter-<?php echo $chapter->id?>"></div>
-              <?php echo $chapter->description ?>
+              <?php echo chapter_description($chapter) ?>
             <?php }?>
           </div>
         </div>

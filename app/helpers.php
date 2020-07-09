@@ -51,3 +51,43 @@ if (! function_exists('orderIcon')) {
   }
 }
 
+if (! function_exists('chapter_description')) {
+  function chapter_description($chapter){
+    
+    $descr = '<div id="chapter-' . $chapter->id . '"></div>';
+
+    if($chapter!=null && $chapter->description != null){
+      $descr.= $chapter->description;
+    }
+
+    if($chapter!=null && $chapter->subsections != null){
+      foreach($chapter->subsections as $subsection){
+        $descr.=chapter_description($subsection);
+      }
+    }
+
+    return $descr;
+  }
+}
+
+if (! function_exists('chapter_menu')) {
+  function chapter_menu($chapter){
+    
+    $descr = '<li class="nav-item">';
+    $descr.= '<a class="nav-link" href="' . env('R_BOOK').'/'.$chapter->bookid . '#chapter-' . $chapter->id . '">' . $chapter->title . '</a>';
+    
+    if($chapter!=null && $chapter->subsections != null){
+      $descr.= '<ul class="nav flex-column ml-2">';
+      foreach($chapter->subsections as $subsection){
+        
+        $descr.=chapter_menu($subsection);
+      }
+      $descr.= '</ul>';
+    }
+
+
+    $descr.= '</li>';
+    
+    return $descr;
+  }
+}
