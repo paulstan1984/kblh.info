@@ -13,7 +13,6 @@
         <li class="active"><a href="#top"><?php echo __('custom.home');?></a></li>
         <li><a href="<?php echo env('R_BOOKS')?>"><?php echo __('custom.books');?></a></li>
         <li><a href="<?php echo env('R_AUTHORS')?>"><?php echo __('custom.authors');?></a></li>
-        <li><a href=""><?php echo __('custom.contact');?></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 

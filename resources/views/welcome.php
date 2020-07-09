@@ -22,7 +22,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
             <h4 class="title"><a href="<?php echo env('R_BOOKS')?>"><?php echo __('custom.books')?></a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <p class="description"><?php echo __('custom.books_description')?></p>
           </div>
         </div>
 
@@ -30,7 +30,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-palette-line"></i></div>
             <h4 class="title"><a href="<?php echo env('R_AUTHORS')?>"><?php echo __('custom.authors')?></a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            <p class="description"><?php echo __('custom.authors_description')?></p>
           </div>
         </div>
 
@@ -38,7 +38,7 @@
           <div class="icon-box">
             <div class="icon"><i class="ri-command-line"></i></div>
             <h4 class="title"><a href="<?php echo env('R_BOOKS')?>"><?php echo __('custom.categories')?></a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            <p class="description"><?php echo __('custom.categories_description')?></p>
           </div>
         </div>
 

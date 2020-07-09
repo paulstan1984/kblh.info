@@ -48,7 +48,9 @@
 
   </main><!-- End #main -->
   <?php echo $footer ?>
-
+  <script type="text/javascript">
+    $('#header').removeClass('fixed-top');
+  </script>
 </body>
 
 </html>

@@ -71,6 +71,10 @@ return [
   'about_us_title' => 'Despre Noi',
   'about_us_description' => 'STUDIUL CABALA - "Cabala nu este studiată de dragul de a dobândi cunoştinţe teoretice, ci pentru a ne ajuta să vedem şi să percepem ceea ce ne este ascuns."',
 
+  'books_description' => 'Aceasta este o bibliotecă online cu foarte multe cărți interesante.',
+  'authors_description' => 'Autori clasici și contemporani.',
+  'categories_description' => 'Diverse categorii și stiluri narative.',
+
   'usefull_links' => 'Link-uri utile',
   'newsletter' => 'Abonare Newsletter',
   'newsletter_description' => 'Pentru mai multe informații și noutăți vă rugăm să vă abonați la newsletter.',

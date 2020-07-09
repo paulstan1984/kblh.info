@@ -19,7 +19,6 @@
             <li><i class="bx bx-chevron-right"></i><a href="#about"><?php echo __('custom.books');?></a></li>
             <li><i class="bx bx-chevron-right"></i><a href="#services"><?php echo __('custom.authors');?></a></li>
             <li><i class="bx bx-chevron-right"></i><a href="#portfolio"><?php echo __('custom.categories');?></a></li>
-            <li><i class="bx bx-chevron-right"></i><a href="#team"><?php echo __('custom.contact');?></a></li>
           </ul>
         </div>
 
@@ -51,6 +50,8 @@
     </div>
     <div class="social-links text-center text-md-right pt-3 pt-md-0">
       <a target="_blank" href="<?php echo env('fb_url')?>" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a target="_blank" href="<?php echo env('yt_url')?>" class="youtube"><i class="bx bxl-youtube"></i></a>
+      
     </div>
   </div>
 </footer><!-- End Footer -->
