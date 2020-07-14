@@ -37,7 +37,7 @@ class PublicController extends Controller
         $pagination = $this->getPagination($request);
         $query = Book::search($request);
 
-        $this->data['results'] = $this->applyPagination($query, $pagination);
+        $this->data['results'] = $this->applyPagination($query, $pagination, $this->pageSize);
         $this->data['results']->title = $request->get('title');
         $this->data['results']->category_id = $request->get('category_id');
         $this->data['results']->author_id = $request->get('author_id');
@@ -71,7 +71,7 @@ class PublicController extends Controller
 
         $pagination = $this->getPagination($request);
         $query = Author::search($request);
-        $this->data['results'] = $this->applyPagination($query, $pagination);
+        $this->data['results'] = $this->applyPagination($query, $pagination, $this->pageSize);
         $this->data['results']->name = $request->get('name');
 
         return view('authors', $this->data);

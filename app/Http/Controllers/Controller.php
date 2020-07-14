@@ -14,6 +14,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     var $data = [];
+    var $pageSize = 30;
 
     protected function loadBlocks(){
         $this->data = array_merge($this->data, array(
@@ -44,8 +45,7 @@ class Controller extends BaseController
         return (object)$pagination;
     }
 
-    protected static function applyPagination(Builder $query, $pagination) {
-        $pageSize = 10;
+    protected static function applyPagination(Builder $query, $pagination, int $pageSize = 10) {
 
         $nrPages = ceil($query->count() / $pageSize) ;
         $query = $query->orderBy($pagination->orderBy, $pagination->orderByDir)
