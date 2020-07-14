@@ -63,12 +63,26 @@ class BookSection extends Model
   public static function getParents(int $id){
     $item = BookSection::find($id);
 
-    if($item->parentid==0){
+    if($item == null || $item->parentid==0){
       return [];
     } else {
       $parents = BookSection::getParents($item->parentid);
       $parents[]=BookSection::find($item->parentid);
       return $parents;
     }
+  }
+
+  public static function deleteSection(BookSection $section){
+
+    if($section==null){
+      return;
+    }
+
+    if($section->subsections->count()>0){
+      foreach($section->subsections as $subsection){
+        BookSection::deleteSection($subsection);
+      }
+    }
+    $section->delete(); 
   }
 }

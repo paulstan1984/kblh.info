@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class ValidateUsernamePassword implements Rule
 {
-    var Request $request;
+    var $request;
     
     /**
      * Create a new rule instance.

@@ -78,6 +78,11 @@ class AdminAuthorsController extends AdminBaseController
     public function delete(Request $request, $id)
     {
         $item = Author::find($id);
+
+        BookAuthor::query() 
+            ->where('authorid', '=', $id)
+            ->delete();
+
         $item->delete(); 
         return redirect(env('R_ADMIN').'/authors?msg=infodeleted');
     }

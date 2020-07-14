@@ -87,6 +87,7 @@
 
             </div>
 
+            <?php if( $item->id > 0) {?>
             <div class="row">
               <h2 class="col-12"><?php echo __('custom.subsections') ?></h2>
 
@@ -143,6 +144,7 @@
                 <p class="col-12"><?php echo __('custom.nodata') ?></p>
               <?php } ?>
             </div>
+            <?php }?>
           </div>
 
           <div class="card-footer">

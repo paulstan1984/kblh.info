@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use App\Category;
+use App\BookCategory;
 
 class AdminCategoriesController extends AdminBaseController
 {
@@ -62,6 +63,11 @@ class AdminCategoriesController extends AdminBaseController
     public function delete(Request $request, $id)
     {
         $item = Category::find($id);
+
+        BookCategory::query() 
+            ->where('categoryid', '=', $id)
+            ->delete();
+
         $item->delete(); 
         return redirect(env('R_ADMIN').'/categories?msg=infodeleted');
     }

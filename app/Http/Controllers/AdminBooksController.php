@@ -74,6 +74,19 @@ class AdminBooksController extends AdminBaseController
     public function delete(Request $request, $id)
     {
         $item = Book::find($id);
+
+        BookAuthor::query() 
+            ->where('bookid', '=', $id)
+            ->delete();
+
+        BookCategory::query() 
+            ->where('bookid', '=', $id)
+            ->delete();
+
+        BookSection::query() 
+            ->where('bookid', '=', $id)
+            ->delete();            
+
         $item->delete(); 
         return redirect(env('R_ADMIN').'/books?msg=infodeleted');
     }
@@ -143,7 +156,7 @@ class AdminBooksController extends AdminBaseController
     public function deletechapter(Request $request, $bookid, $id)
     {
         $item = BookSection::find($id);
-        $item->delete(); 
+        BookSection::deleteSection($item);
         return redirect(env('R_ADMIN').'/books/edit/'.$bookid.'?msg=infodeleted');
     }
 

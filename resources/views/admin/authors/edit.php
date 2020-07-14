@@ -37,6 +37,7 @@
                 <?php } ?>
               </div>
 
+              <?php if( $item->id > 0) {?>
               <div class="col-sm-12 col-md-8">
                 <h2><?php echo __('custom.books') ?></h2>
                 <label><?php echo __('custom.typebookname') ?>: </label>
@@ -82,7 +83,7 @@
                 <?php } ?>
 
               </div>
-
+              <?php }?>
             </div>
 
 
@@ -92,7 +93,10 @@
 
             <a href="admin/authors" class="btn btn-secondary"><?php echo __('custom.cancel') ?></a>
             <button type="submit" class="btn btn-primary"><?php echo __('custom.save') ?></button>
-
+            <a class="btn btn-danger" href="admin/authors/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
+                <i class="fas fa-trash"></i>
+                <?php echo __('custom.delete')?>
+            </a>
           </div>
         </form>
       </div>

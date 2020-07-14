@@ -14,7 +14,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2><?php echo __('custom.authors') ?></h2>
           <ol>
-            <li><a href="<?php echo env('BASE_URL') ?>">Home</a></li>
+            <li><a href="<?php echo env('BASE_URL') ?>"><?php echo __('custom.home')?></a></li>
             <li><?php echo __('custom.authors') ?></li>
           </ol>
         </div>

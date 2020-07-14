@@ -56,7 +56,8 @@
                   </p>
                 <?php } ?>
               </div>
-
+            
+              <?php if( $item->id > 0) {?>
               <div class="col-sm-12 col-md-6">
                 <h2><?php echo __('custom.authors') ?></h2>
                 <label><?php echo __('custom.typeauthorname') ?>: </label>
@@ -142,8 +143,10 @@
                 <?php } ?>
 
               </div>
+              <?php }?>
             </div>
 
+            <?php if( $item->id > 0) {?>
             <div class="row">
               <h2 class="col-12"><?php echo __('custom.chapters') ?></h2>
 
@@ -200,14 +203,20 @@
                 <p class="col-12"><?php echo __('custom.nodata') ?></p>
               <?php } ?>
             </div>
-
+            <?php } ?>
           </div>
 
           <div class="card-footer">
 
             <a href="admin/books" class="btn btn-secondary"><?php echo __('custom.cancel') ?></a>
+            <?php if( $item->id > 0) {?>
             <a href="admin/books/<?php echo $item->id ?>/chapters/0/0" class="btn btn-info"><?php echo __('custom.addchapter') ?></a>
+            <?php }?>
             <button type="submit" class="btn btn-primary"><?php echo __('custom.save') ?></button>
+            <a class="btn btn-danger" href="admin/books/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
+                <i class="fas fa-trash"></i>
+                <?php echo __('custom.delete')?>
+            </a>
           </div>
         </form>
       </div>
