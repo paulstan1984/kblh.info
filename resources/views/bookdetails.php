@@ -20,6 +20,10 @@
           </ol>
         </div>
 
+        <a class="btn btn-primary float-sm-right" href="<?php echo env('R_BOOK') . '/' . $item->id . '/generate-pdf' ?>">
+          <i class="fas fa-file-download"></i> PDF
+        </a>
+
       </div>
     </section><!-- End Breadcrumbs -->
 
@@ -29,7 +33,7 @@
         <div class="row">
           <div class="col-xs-12 col-md-4 bd-sidebar">
             <ul class="nav flex-column">
-              <?php foreach($item->chapters as $chapter){?>
+              <?php foreach ($item->chapters as $chapter) { ?>
                 <?php echo chapter_menu($chapter) ?>
               <?php } ?>
             </ul>
@@ -38,9 +42,12 @@
           <div class="col-xs-12 col-md-8">
             <?php echo $item->description ?>
 
-            <?php foreach($item->chapters as $chapter){?>
+            <?php foreach ($item->chapters as $chapter) { ?>
+              <a class="btn btn-primary float-sm-right" href="<?php echo env('R_BOOKCHAPTER').'/'.$chapter->id.'/generate-pdf' ?>">
+                <i class="fas fa-file-download"></i> PDF
+              </a>
               <?php echo chapter_description($chapter) ?>
-            <?php }?>
+            <?php } ?>
           </div>
         </div>
       </div>

@@ -45,10 +45,12 @@
                   <a href="admin/categories" class="btn btn-secondary"><?php echo __('custom.cancel')?></a>
                   <button type="submit" class="btn btn-primary"><?php echo __('custom.save')?></button>
 
+                  <?php if( $item->id > 0) {?>
                   <a class="btn btn-danger" href="admin/categories/delete/<?php echo $item->id?>" onclick="return confirm('Confirmați?')">
                       <i class="fas fa-trash"></i>
                       <?php echo __('custom.delete')?>
                   </a>
+                  <?php }?>
                 </div>
               </form>
             </div>
