@@ -14,13 +14,10 @@
 </head>
 
 <body>
-  <h1><?php echo $item->title; ?></h1>
   <?php echo $item->description ?>
 
   <?php foreach ($item->chapters as $chapter) { ?>
-    <h2><?php echo $chapter->title; ?></h2>
     <?php echo chapter_description($chapter) ?>
-
   <?php } ?>
 </body>
 

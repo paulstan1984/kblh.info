@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <h1><?php echo $item->title; ?></h1>
     <?php echo chapter_description($item) ?>
 </body>
 

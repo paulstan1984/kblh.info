@@ -42,11 +42,46 @@
           <div class="col-xs-12 col-md-8">
             <?php echo $item->description ?>
 
-            <?php foreach ($item->chapters as $chapter) { ?>
-              <a class="btn btn-primary float-sm-right" href="<?php echo env('R_BOOKCHAPTER').'/'.$chapter->id.'/generate-pdf' ?>">
-                <i class="fas fa-file-download"></i> PDF
-              </a>
-              <?php echo chapter_description($chapter) ?>
+            <?php 
+              $next = [];
+              for($i=1;$i<count($item->chapters);$i++) { 
+                $next[]=$item->chapters[$i]->id;
+              }
+              $next[]=null;
+
+              $prev = [null];
+              for($i=0;$i<count($item->chapters)-1;$i++) { 
+                $prev[]=$item->chapters[$i]->id;
+              }
+            ?>
+
+            <?php for ($i=0;$i<count($item->chapters);$i++) { $chapter = $item->chapters[$i]; ?>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-primary float-sm-right" href="<?php echo env('R_BOOKCHAPTER').'/'.$chapter->id.'/generate-pdf' ?>">
+                    <i class="fas fa-file-download"></i> PDF
+                  </a>
+              
+                  <?php echo chapter_description($chapter) ?>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <?php if($prev[$i]!=null){?>
+                  <a class="btn btn-primary float-sm-left" href="<?php echo env('R_BOOK').'/'.$chapter->bookid . '#chapter-' . $prev[$i] ?>">
+                    <i class="fas fa-long-arrow-alt-left"></i> <?php echo __('custom.prev')?>
+                  </a>
+                  <?php } ?>
+
+                  <?php if($next[$i]!=null){?>
+                  <a class="btn btn-primary float-sm-right" href="<?php echo env('R_BOOK').'/'.$chapter->bookid . '#chapter-' . $next[$i] ?>"">
+                    <?php echo __('custom.next')?> <i class="fas fa-long-arrow-alt-right"></i>
+                  </a>
+                  <?php } ?>
+                </div>
+              </div>
+              <hr/>
             <?php } ?>
           </div>
         </div>

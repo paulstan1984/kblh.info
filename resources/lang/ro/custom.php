@@ -81,4 +81,7 @@ return [
   'subscribe' => 'Abonare',
 
   'designedby' => 'Design realizat de',
+
+  'next' => 'următorul',
+  'prev' => 'precedentul',
 ];
