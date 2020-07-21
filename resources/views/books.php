@@ -27,7 +27,7 @@
       <div class="container">
 
         <div class="row">
-          <h2 class="col-12 p-0"><?php echo __('custom.search') ?></h2>
+          <h2 class="col-12 p-0 uppercase"><?php echo __('custom.search') ?></h2>
           <?php if($categories->count()>0){?>
             <div class="col-12 p-0 mb-2">
               <?php foreach ($categories as $category) { ?>

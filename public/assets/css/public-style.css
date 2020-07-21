@@ -2019,3 +2019,13 @@ section {
 .error {
     color: #FF0000;
 }
+
+nav.nav-menu,
+.breadcrumbs,
+.uppercase {
+    text-transform: uppercase;
+}
+
+.mobile-nav {
+    text-align: center;
+}

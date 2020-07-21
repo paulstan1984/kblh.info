@@ -6,7 +6,7 @@ return [
   'adminTitle' => 'kblh.info - Administrare',
   'loggedInAs' => 'Conectat ca',
 
-  'home' => 'Pagina Principală',
+  'home' => 'Home',
   'authors' => 'Autori',
   'books' => 'Cărți',
   'categories' => 'Categorii',
@@ -65,7 +65,7 @@ return [
   'preview' => 'Previzualizare',
   'contact' => 'Contact',
 
-  'siteTitle' => 'Academia de Kabala',
+  'siteTitle' => 'ACADEMIA DE CABALA',
   'letsstart' => 'Să începem',
 
   'about_us_title' => 'Despre Noi',

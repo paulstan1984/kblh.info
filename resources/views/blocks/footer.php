@@ -51,7 +51,8 @@
     <div class="social-links text-center text-md-right pt-3 pt-md-0">
       <a target="_blank" href="<?php echo env('fb_url')?>" class="facebook"><i class="bx bxl-facebook"></i></a>
       <a target="_blank" href="<?php echo env('yt_url')?>" class="youtube"><i class="bx bxl-youtube"></i></a>
-      
+      <a target="_blank" href="<?php echo env('insta_url')?>" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a target="_blank" href="<?php echo env('sc_url')?>" class="soundcloud"><i class="bx bxl-soundcloud"></i></a>
     </div>
   </div>
 </footer><!-- End Footer -->
