@@ -52,7 +52,7 @@
             <input type="hidden" name="author_id" value="<?php echo old('author_id', $results->author_id) ?>"/>
             <?php }?>
 
-            <div class="col-auto">
+            <div class="col-7 col-md-3">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fas fa-search-plus"></i></div>
@@ -60,7 +60,7 @@
                 <input class="form-control" type="text" name="title" value="<?php echo old('title', $results->title) ?>" placeholder="<?php echo __('custom.title') ?>" />
               </div>
             </div>
-            <div class="col-auto">
+            <div class="col-5 col-md-9">
               <input class="btn btn-primary" type="submit" value="<?php echo __('custom.search') ?>" />
             </div>
           </form>
