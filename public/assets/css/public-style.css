@@ -2029,3 +2029,7 @@ nav.nav-menu,
 .mobile-nav {
     text-align: center;
 }
+
+span {
+    overflow-wrap: break-word;
+}
