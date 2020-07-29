@@ -4,8 +4,9 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta charset="utf-8">
   <style>
-    body {
-      font-family: "dejavu sans", serif;
+    body,
+    body * {
+      font-family: "dejavu sans", serif !important;
       font-size: 12px;
       color: #000;
     }
