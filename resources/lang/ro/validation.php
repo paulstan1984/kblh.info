@@ -148,6 +148,9 @@ return [
     'attributes' => [
         'password' => 'Parola',
         'repassword' => 'Parola din nou',
-        'email' => 'Email'
+        'email' => 'Email',
+        'title' => 'Titlu',
+        'name' => 'Nume',
+        'description' => 'Descriere',
     ],
 ];
