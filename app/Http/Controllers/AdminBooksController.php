@@ -51,7 +51,7 @@ class AdminBooksController extends AdminBaseController
         }
         
         $validatedData = $request->validate([
-            'title' => ['required','max:100',Rule::unique('books')->ignore($id)],
+            'title' => ['required','max:200',Rule::unique('books')->ignore($id)],
             'description' => 'required',
         ]);
             
@@ -125,7 +125,7 @@ class AdminBooksController extends AdminBaseController
         }
         
         $validatedData = $request->validate([
-            'title' => ['required','max:100'],
+            'title' => ['required','max:200'],
             'position' => ['required','numeric'],
             'description' => 'required',
         ]);
