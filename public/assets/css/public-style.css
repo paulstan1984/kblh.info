@@ -2030,6 +2030,11 @@ nav.nav-menu,
     text-align: center;
 }
 
-span {
+.book-content span {
     overflow-wrap: break-word;
+}
+
+.book-content img {
+    max-width: 100%;
+    height: auto!important;
 }

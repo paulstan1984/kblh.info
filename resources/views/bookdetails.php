@@ -39,7 +39,7 @@
             </ul>
           </div>
 
-          <div class="col-xs-12 col-md-8">
+          <div class="col-xs-12 col-md-8 book-content">
             <?php echo $item->description ?>
 
             <?php 
